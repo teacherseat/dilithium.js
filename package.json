@@ -1,0 +1,18 @@
+{
+  "name": "dilithium",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ExamProCo/dilithium.js.git"
+  },
+  "engines": {
+    "node": ">=8.12.0"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "coffeescript": "^2.4.1",
+    "mithril": "^2.0.0-rc.9",
+    "uuid": "^3.3.2"
+  },
+  "dependencies": {}
+}
