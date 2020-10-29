@@ -1,10 +1,10 @@
-import { m, redraw, request, trust, mount, route } from 'mithril'
+import { m, redraw, trust, mount, route } from 'mithril'
 import stream from 'mithril/stream'
 
 param  = route.param
 Link   = route.Link
 
-export { m, redraw, request, trust, mount, route, param, Link }
+export { m, redraw, trust, mount, route, param, Link }
 export { stream }
 
 # Operations
