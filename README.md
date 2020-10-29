@@ -8,6 +8,6 @@ A conventional and opionated javascript framework build ontop of
 
 The Dilithium codebase is divided into three departments:
 
-* [Command](https://github.com/ExamProCo/Dilithium/tree/master/src/command)
-* [Sciences](https://github.com/ExamProCo/Dilithium/tree/master/src/sciences)
-* [Operations](https://github.com/ExamProCo/Dilithium/tree/master/src/operations)
+* [Command](https://github.com/ExamProCo/Dilithium/tree/master/src/command)       - common views you can extend eg. List, Show, Collection
+* [Sciences](https://github.com/ExamProCo/Dilithium/tree/master/src/sciences)     - common components eg. Field, Form, Popup
+* [Operations](https://github.com/ExamProCo/Dilithium/tree/master/src/operations) - core functionality eg. Api, Model, View

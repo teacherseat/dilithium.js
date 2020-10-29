@@ -1,15 +1,22 @@
 {
   "name": "dilithium-js",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ExamProCo/dilithium.js.git"
   },
+  "main": "index.js",
   "engines": {
     "node": ">=8.12.0"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "coffee index.coffee -o ./build"
+  },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/preset-env": "^7.5.5",
     "coffeescript": "^2.4.1",
     "mithril": "^2.0.0-rc.9",
     "uuid": "^3.3.2"

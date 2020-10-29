@@ -1,4 +1,4 @@
-Sciences are intermediaty functionality of the Dilithium framework.
+Sciences are intermediary functionality of the Dilithium framework.
 It contains conventional small components.
 
 ### Popup
