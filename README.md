@@ -33,3 +33,22 @@ cake compile
 ```
 
 The compiled code will output to the `build` directory
+
+
+## How to specific local package for development
+
+
+npm 2.0 supprts installing local packages with the following command:
+
+```
+npm i --save /path/to/dilithium.js
+```
+
+you'll see something like this in your package.json
+
+```
+"dependencies": {
+  "dilithium-js": "file:../../dilithium.js"
+}
+```
+

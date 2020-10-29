@@ -1,6 +1,6 @@
-import View from '../../operations/view'
+import View from './../../operations/view/view.js'
 
-class CollectionView extends View
+export class CollectionView extends View
   constructor:(args)->
     super(args)
 

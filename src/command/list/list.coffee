@@ -1,5 +1,5 @@
-import View from '../../operations/view'
+import View from './../../operations/view/view.js'
 
-class ListView extends View
+export class ListView extends View
   constructor:(args)->
     super(args)
