@@ -1,4 +1,4 @@
-import * as m from 'mithril'
+import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
 export default class Textarea extends Component

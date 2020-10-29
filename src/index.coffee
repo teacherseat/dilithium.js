@@ -1,8 +1,8 @@
 import { m, redraw, request, trust, mount, route } from 'mithril'
 import stream from 'mithril/stream'
 
-param  = m.route.param
-Link   = m.route.Link
+param  = route.param
+Link   = route.Link
 
 export { m, redraw, request, trust, mount, route, param, Link }
 export { stream }
