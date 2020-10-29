@@ -1,8 +1,11 @@
-import * as m from 'mithril'
+import { m, redraw, request, trust, mount, route } from 'mithril'
 import stream from 'mithril/stream'
 
-export m
-export stream
+param  = m.route.param
+Link   = m.route.Link
+
+export { m, redraw, request, trust, mount, route, param, Link }
+export { stream }
 
 # Operations
 export { $register, $broadcast } from './operations/events/events'
