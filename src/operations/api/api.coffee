@@ -1,5 +1,5 @@
 import * as m from 'mithril'
-import { $broadcast } from 'monster'
+import { $broadcast } from './../events.js'
 
 parameter_name = (root)->
 
@@ -11,21 +11,23 @@ if typeof File is 'undefined'
   class File
     constructor:->
 
+# Why Blob instead of File?
+# https://stackoverflow.com/questions/25677681/javascript-file-is-instance-of-file-but-instanceof-file-is-false
 has_attached_file = (value)->
   result = false
-  if typeof value is 'object' && !(value instanceof File)
+  if typeof value is 'object' && !(value instanceof Blob)
     for own k,v of value
       result |= has_attached_file v
   else if typeof value is 'array'
     for vv in v
       result |= has_attached_file vv
   else
-    result |= value instanceof File
+    result |= value instanceof Blob
   return result
 
 form_object_to_form_data = (value,fd=null,root=[]) ->
   fd = new FormData() unless fd
-  if typeof value is 'object' && !(value instanceof File)
+  if typeof value is 'object' && !(value instanceof Blob)
     for own k,v of value
       form_object_to_form_data v, fd, root.concat [k]
   else if typeof value is 'array'
@@ -90,8 +92,11 @@ export class ApiBase
         attrs =
           method : method
           url    : url
-          body   : data
           headers: headers_attrs
+        if method is 'GET'
+          attrs.params = data
+        else
+          attrs.body = data
         attrs.extract = extract if extract
         m.request(attrs).then(ev_success,ev_error)
   _extract_id:(model)=>
@@ -133,4 +138,3 @@ export class ApiBase
     @[tn][a] = (params,opts)=> ApiBase._request "#{tn}/#{a}", method.toUpperCase(), @path([tn, a], ns), @headers, params, opts
   _member:(tn,a,method,ns)=>
     @[tn][a] = (model,params,opts)=> ApiBase._request "#{tn}/#{a}", method.toUpperCase(), @path([tn, model.id, a], ns),  @headers, params, opts
-
