@@ -13,7 +13,7 @@ ExpectedComponentAttributes = (message,attribute,component,scope)->
    this.component = component
    this.scope     = scope
 
-export default class Base
+export class Base
   # unique way of indentifying each components
   scope:->
     uuid()
