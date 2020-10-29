@@ -1,6 +1,6 @@
 import { tableize, singularize } from 'inflection'
 import * as m from 'mithril'
-import Base from './../base/base.js'
+import { Base } from './../base/base.js'
 
 export class View extends Base
   constructor:(args)->

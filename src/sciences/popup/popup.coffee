@@ -1,6 +1,6 @@
 import * as m from 'mithril'
 import stream from 'mithril/stream'
-import Component from './../../operations/component/component.js'
+import { Component } from './../../operations/component/component'
 
 export class Popup extends Component
   constructor:(args)->
@@ -31,4 +31,4 @@ export class Popup extends Component
           m '.title', @heading()
           m '.bttn.close.fa.fa-times', onclick: @close
         m '.popup_content',
-         @render()
+          @render()
