@@ -1,3 +1,9 @@
+import * as m from 'mithril'
+import stream from 'mithril/stream'
+
+export m
+export stream
+
 # Operations
 export { $register, $broadcast } from './operations/events/events'
 export { ApiBase   }             from './operations/api/api'
