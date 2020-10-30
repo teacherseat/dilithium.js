@@ -29,6 +29,7 @@ export { InputPassword } from './sciences/fields/input_password/input_password'
 export { InputText }     from './sciences/fields/input_text/input_text'
 export { Radio }         from './sciences/fields/radio/radio'
 export { Textarea }      from './sciences/fields/textarea/textarea'
+export { Select }        from './sciences/fields/select/select'
 
 # Command
 export { ListView }              from './command/list/list'

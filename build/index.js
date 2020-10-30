@@ -159,6 +159,12 @@ Object.defineProperty(exports, "Textarea", {
     return _textarea.Textarea;
   }
 });
+Object.defineProperty(exports, "Select", {
+  enumerable: true,
+  get: function get() {
+    return _select.Select;
+  }
+});
 Object.defineProperty(exports, "ListView", {
   enumerable: true,
   get: function get() {
@@ -226,6 +232,8 @@ var _input_text = require("./sciences/fields/input_text/input_text");
 var _radio = require("./sciences/fields/radio/radio");
 
 var _textarea = require("./sciences/fields/textarea/textarea");
+
+var _select = require("./sciences/fields/select/select");
 
 var _list = require("./command/list/list");
 
