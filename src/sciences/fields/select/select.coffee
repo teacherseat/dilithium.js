@@ -1,7 +1,7 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class Select extends Component
+export class Select extends Component
   expects:
     attribute: true
     options: true

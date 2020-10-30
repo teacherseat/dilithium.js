@@ -1,7 +1,7 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class InputText extends Component
+export class InputText extends Component
   expects:
     attribute: true
     handle: true

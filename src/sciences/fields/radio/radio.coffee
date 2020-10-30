@@ -1,7 +1,7 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class Radio extends Component
+export class Radio extends Component
   expects:
     attribute: true
     handle: true

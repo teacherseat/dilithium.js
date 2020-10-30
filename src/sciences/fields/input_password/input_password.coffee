@@ -1,7 +1,7 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class InputPassword extends Component
+export class InputPassword extends Component
   oninit:(vnode)->
     super(vnode)
     @attribute = vnode.attrs.attribute

@@ -1,14 +1,14 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class ErrorMsg extends Component
+export class ErrorMsg extends Component
   expects:
     errors: true
     title: true
     overrides:
       allow_nil: true
   render:=>
-    if @errors().length > 0
+    return unless @errors().length > 0
       m '.err_msg.err',
         for err in @errors()
           if @overrides && @overrides[err]

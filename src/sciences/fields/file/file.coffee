@@ -1,7 +1,7 @@
 import { m } from 'mithril'
 import { Component } from './../../../operations/component/component.js'
 
-export default class FileField extends Component
+export class FileField extends Component
   expects:
     attribute: true
     handle: true
