@@ -56,7 +56,7 @@ var ErrorMsg = function () {
         var err;
         boundMethodCheck(this, ErrorMsg);
 
-        if (this.errors().length > 0) {
+        if (!(this.errors().length > 0)) {
           return (0, _mithril.m)('.err_msg.err', function () {
             var i, len, ref, results;
             ref = this.errors();

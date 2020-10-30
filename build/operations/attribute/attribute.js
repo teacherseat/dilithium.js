@@ -15,6 +15,7 @@ var Attribute = function Attribute() {
   _classCallCheck(this, Attribute);
 
   this.value = (0, _stream["default"])(null);
+  this.errors = (0, _stream["default"])([]);
 };
 
 exports.Attribute = Attribute;
