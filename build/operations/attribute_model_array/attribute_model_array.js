@@ -17,9 +17,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 // Represent an array of models
 // eg. a list of checkboxes
-var ArrayModelAttribute =
-/*#__PURE__*/
-function () {
+var ArrayModelAttribute = /*#__PURE__*/function () {
   function ArrayModelAttribute() {
     _classCallCheck(this, ArrayModelAttribute);
 

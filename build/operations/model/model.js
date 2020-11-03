@@ -15,9 +15,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Model =
-/*#__PURE__*/
-function () {
+var Model = /*#__PURE__*/function () {
   function Model() {
     var attrs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
