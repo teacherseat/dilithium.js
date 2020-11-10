@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ArrayModelAttribute = void 0;
+exports.AttributeModelArray = void 0;
 
 var _stream = _interopRequireDefault(require("mithril/stream"));
 
@@ -17,11 +17,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 // Represent an array of models
 // eg. a list of checkboxes
-var ArrayModelAttribute =
-/*#__PURE__*/
-function () {
-  function ArrayModelAttribute() {
-    _classCallCheck(this, ArrayModelAttribute);
+var AttributeModelArray = /*#__PURE__*/function () {
+  function AttributeModelArray() {
+    _classCallCheck(this, AttributeModelArray);
 
     this.at = this.at.bind(this);
     this.reset = this.reset.bind(this);
@@ -30,7 +28,7 @@ function () {
     this.value = (0, _stream["default"])(null);
   }
 
-  _createClass(ArrayModelAttribute, [{
+  _createClass(AttributeModelArray, [{
     key: "at",
     value: function at(v) {
       return this.array[v];
@@ -64,7 +62,7 @@ function () {
     }
   }]);
 
-  return ArrayModelAttribute;
+  return AttributeModelArray;
 }();
 
-exports.ArrayModelAttribute = ArrayModelAttribute;
+exports.AttributeModelArray = AttributeModelArray;
