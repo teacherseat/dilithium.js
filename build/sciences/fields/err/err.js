@@ -61,26 +61,26 @@ var ErrorMsg = function () {
         boundMethodCheck(this, ErrorMsg);
 
         if (!(this.errors().length > 0)) {
-          return (0, _mithril.m)('.err_msg.err', function () {
-            var i, len, ref, results;
-            ref = this.errors();
-            results = [];
-
-            for (i = 0, len = ref.length; i < len; i++) {
-              err = ref[i];
-
-              if (this.overrides && this.overrides[err]) {
-                results.push((0, _mithril.m)('.err', this.overrides[err]));
-              } else {
-                results.push((0, _mithril.m)('.err', "".concat(this.title, " ").concat(err)));
-              }
-            }
-
-            return results;
-          }.call(this));
-        } else {
-          return (0, _mithril.m)('.err_msg');
+          return;
         }
+
+        return (0, _mithril.m)('.err_msg.err', function () {
+          var i, len, ref, results;
+          ref = this.errors();
+          results = [];
+
+          for (i = 0, len = ref.length; i < len; i++) {
+            err = ref[i];
+
+            if (this.overrides && this.overrides[err]) {
+              results.push((0, _mithril.m)('.err', this.overrides[err]));
+            } else {
+              results.push((0, _mithril.m)('.err', "".concat(this.title, " ").concat(err)));
+            }
+          }
+
+          return results;
+        }.call(this));
       }
     }]);
 

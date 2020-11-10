@@ -9,11 +9,9 @@ export class ErrorMsg extends Component
       allow_nil: true
   render:=>
     return unless @errors().length > 0
-      m '.err_msg.err',
-        for err in @errors()
-          if @overrides && @overrides[err]
-            m '.err', @overrides[err]
-          else
-            m '.err', "#{@title} #{err}"
-    else
-      m '.err_msg'
+    m '.err_msg.err',
+      for err in @errors()
+        if @overrides && @overrides[err]
+          m '.err', @overrides[err]
+        else
+          m '.err', "#{@title} #{err}"
