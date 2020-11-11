@@ -97,7 +97,7 @@ var Model = /*#__PURE__*/function () {
       for (k in ref) {
         v = ref[k];
 
-        if (attrs[k]) {
+        if (typeof attrs[k] === 'boolean' || attrs[k]) {
           results.push(this[k].value(attrs[k]));
         } else {
           results.push(this[k].value(''));

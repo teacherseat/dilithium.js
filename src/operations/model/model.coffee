@@ -40,7 +40,7 @@ export class Model
   reset:(attrs={})=>
     @id(attrs.id || null)
     for k,v of @attributes
-      if attrs[k]
+      if typeof attrs[k] is 'boolean' || attrs[k]
         @[k].value(attrs[k])
       else
         @[k].value('')
