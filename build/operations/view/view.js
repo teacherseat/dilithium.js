@@ -71,16 +71,30 @@ var View = /*#__PURE__*/function (_Base) {
   _createClass(View, [{
     key: "oninit",
     value: function oninit(vnode) {
-      var location_name;
+      var body_location, body_view;
 
       _get(_getPrototypeOf(View.prototype), "oninit", this).call(this, vnode);
 
       this.reindex();
-      location_name = this.location_name || (0, _inflection.singularize)((0, _inflection.tableize)(this.constructor.name));
-      document.body.setAttribute('location', location_name);
 
-      if (this.body_class) {
-        document.body.classList.add(this.body_class);
+      if (this.body && this.body.location) {
+        body_location = this.body.location;
+      }
+
+      body_location || (body_location = (0, _inflection.singularize)((0, _inflection.tableize)(this.constructor.name)));
+
+      if (this.body && this.body.view) {
+        body_view = this.body.view;
+      }
+
+      console.log('body', this.body);
+
+      if (body_location) {
+        document.body.setAttribute('location', body_location);
+      }
+
+      if (body_view) {
+        document.body.setAttribute('view', body_view);
       }
 
       return true;

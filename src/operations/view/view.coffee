@@ -8,9 +8,12 @@ export class View extends Base
   oninit:(vnode)->
     super(vnode)
     @reindex()
-    location_name = @location_name || singularize(tableize(@constructor.name))
-    document.body.setAttribute 'location', location_name
-    document.body.classList.add(@body_class) if @body_class
+    body_location   = @body.location if @body && @body.location
+    body_location ||= singularize tableize(@constructor.name)
+    body_view       = @body.view if @body && @body.view
+    console.log 'body', @body
+    document.body.setAttribute('location',body_location) if body_location
+    document.body.setAttribute('view'    , body_view)    if body_view
     return true
   # reindex is where you would normally make
   # your api call. If reindex is not overwritten
