@@ -5,4 +5,4 @@ It contains conventional small components.
 
 A Component which deals with Popups
 
-[Documentation](https://github.com/ExamProCo/Dilithium/tree/master/src/sciences/api)
+[Documentation](https://github.com/teacherseat/Dilithium/tree/master/src/sciences/api)

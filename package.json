@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ExamProCo/dilithium.js.git"
+    "url": "https://github.com/teacherseat/dilithium.js.git"
   },
   "main": "build/index.js",
   "engines": {
