@@ -1,5 +1,5 @@
 import { m } from 'mithril'
-import { Component } from './../../../operations/component/component.js'
+import { Component } from './../../../operations/component/component'
 
 export class Select extends Component
   expects:

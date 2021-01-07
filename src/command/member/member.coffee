@@ -1,4 +1,4 @@
-import { View } from './../../operations/view/view.js'
+import { View } from './../../operations/view/view'
 
 export class MemberView extends View
   constructor:(args)->

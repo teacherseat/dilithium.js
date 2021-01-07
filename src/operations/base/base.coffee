@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4'
-import { $register, $deregister } from './../events/events.js'
-import { Util } from './../util/util.js'
+import { $register, $deregister } from './../events/events'
+import { Util } from './../util/util'
 
 RenderUndefined = (message,component,scope)->
    this.message   = message

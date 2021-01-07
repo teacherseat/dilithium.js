@@ -1,5 +1,5 @@
 import stream from 'mithril/stream'
-import { Attribute } from './../attribute/attribute.js'
+import { Attribute } from './../attribute/attribute'
 
 # Represent an array of attributes
 # eg. a list of checkboxes
