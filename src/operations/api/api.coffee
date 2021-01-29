@@ -117,7 +117,14 @@ export class ApiBase
       path = args
     path.unshift namespace if namespace
     path = path.join '/'
-    "/#{path}"
+
+    # allows namespace to be either:
+    # namespace: 'admin/api/student'
+    # namespace: '/admin/api/student'
+    if path.charAt(0) is '/'
+      path
+    else
+      "/#{path}"
   _resource:(tn,options)=>
     ns = options.namespace
     only = {index: true, new: true, create: true, show: true, edit: true, update: true, destroy: true}

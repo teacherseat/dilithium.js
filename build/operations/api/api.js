@@ -165,8 +165,15 @@ var ApiBase = function () {
           path.unshift(namespace);
         }
 
-        path = path.join('/');
-        return "/".concat(path);
+        path = path.join('/'); // allows namespace to be either:
+        // namespace: 'admin/api/student'
+        // namespace: '/admin/api/student'
+
+        if (path.charAt(0) === '/') {
+          return path;
+        } else {
+          return "/".concat(path);
+        }
       }
     }, {
       key: "_resource",
