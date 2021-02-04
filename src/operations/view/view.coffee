@@ -42,4 +42,4 @@ export class View extends Base
     if @loading
       m '.loading'
     else
-      @render()
+      @render(vnode)
