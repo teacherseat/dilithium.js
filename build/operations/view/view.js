@@ -87,8 +87,6 @@ var View = /*#__PURE__*/function (_Base) {
         body_view = this.body.view;
       }
 
-      console.log('body', this.body);
-
       if (body_location) {
         document.body.setAttribute('location', body_location);
       }
@@ -144,7 +142,7 @@ var View = /*#__PURE__*/function (_Base) {
       if (this.loading) {
         return (0, _mithril.m)('.loading');
       } else {
-        return this.render();
+        return this.render(vnode);
       }
     }
   }]);

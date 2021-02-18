@@ -50,7 +50,6 @@ var InputText = function () {
       _classCallCheck(this, InputText);
 
       _this = _super.apply(this, arguments);
-      _this.onkeyup = _this.onkeyup.bind(_assertThisInitialized(_this));
       _this._onchange = _this._onchange.bind(_assertThisInitialized(_this));
       _this.attrs = _this.attrs.bind(_assertThisInitialized(_this));
       _this.classes = _this.classes.bind(_assertThisInitialized(_this));
@@ -59,12 +58,6 @@ var InputText = function () {
     }
 
     _createClass(InputText, [{
-      key: "onkeyup",
-      value: function onkeyup(ev) {
-        boundMethodCheck(this, InputText);
-        return this.attribute.value(ev.target.value);
-      }
-    }, {
       key: "_onchange",
       value: function _onchange(ev) {
         boundMethodCheck(this, InputText);

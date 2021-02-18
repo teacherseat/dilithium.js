@@ -11,8 +11,6 @@ export class InputText extends Component
       allow_nil: true
     onchange:
       allow_nil: true
-  onkeyup:(ev)=>
-    @attribute.value ev.target.value
   _onchange:(ev)=>
     @attribute.value ev.target.value
     if @onchange
