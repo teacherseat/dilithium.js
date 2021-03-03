@@ -118,7 +118,6 @@ var Util = {
       return [];
     }
 
-    console.log('hash', hash);
     classes = [];
 
     for (class_name in hash) {
@@ -129,14 +128,11 @@ var Util = {
         // variable or a function
         if (class_name[0] === '@') {
           property = class_name.substr(1, class_name.length);
-          console.log('prop', this, property);
 
           if (this[property] != null) {
             if (typeof this[property] === 'function') {
-              console.log('fun', property, this, this[property]());
               classes.push(this[property]());
             } else {
-              console.log('var', property, this, this[property]);
               classes.push(this[property]);
             }
           }

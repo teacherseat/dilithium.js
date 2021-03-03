@@ -65,7 +65,6 @@ export Util =
   #
   classes:(hash)->
     return [] unless hash
-    console.log 'hash', hash
     classes = []
     for class_name,expression of hash
       apply_class_name = typeof(expression) is 'function' && expression() is true ||
@@ -75,13 +74,10 @@ export Util =
         # variable or a function
         if class_name[0] is '@'
           property = class_name.substr(1,class_name.length)
-          console.log 'prop', @, property
           if @[property]?
             if typeof(@[property]) is 'function'
-              console.log 'fun', property, @, @[property]()
               classes.push @[property]()
             else
-              console.log 'var', property, @, @[property]
               classes.push @[property]
         else
           classes.push class_name
