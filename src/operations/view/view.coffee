@@ -1,4 +1,4 @@
-import { tableize, singularize } from 'inflection'
+import { underscore } from 'inflection'
 import { m } from 'mithril'
 import { Base } from './../base/base.js'
 
@@ -9,7 +9,7 @@ export class View extends Base
     super(vnode)
     @reindex()
     body_location   = @body.location if @body && @body.location
-    body_location ||= singularize tableize(@constructor.name)
+    body_location ||= underscore(@constructor.name)
     body_view       = @body.view if @body && @body.view
     document.body.setAttribute('location',body_location) if body_location
     document.body.setAttribute('view'    , body_view)    if body_view
