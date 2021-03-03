@@ -39,3 +39,50 @@ export Util =
         typeof value.length is 'number' and
         typeof value.splice is 'function' and
         not ( value.propertyIsEnumerable 'length' )
+  # This utility is to provide a shorthand
+  # when applying classes to html elements.
+  #
+  # The key is the class that will be applied
+  # The value is the expression to determine if the class should be applied
+  #
+  # A boolean of true here would set a class called active:
+  # eg. {'active': true}
+  #
+  # An a javascript expression as the evaluator
+  # eg. {'active': @hello is 'world'}
+  #
+  # You can use the coffeescript nil expression on variable
+  # eg. {'active': @active?}
+  #
+  # You can have dynamic keys that are either variables or functions
+  # They must be passed a string with the @ sign. If its a function
+  # it will simplify be called. The function takes no arguments
+  # If its a variable the string value will become the class name
+  # {
+  #   "@style": style?
+  # }
+  #
+  #
+  classes:(hash)->
+    return [] unless hash
+    console.log 'hash', hash
+    classes = []
+    for class_name,expression of hash
+      apply_class_name = typeof(expression) is 'function' && expression() is true ||
+                         typeof(expression) is 'boolean'  && expression   is true
+
+      if apply_class_name
+        # variable or a function
+        if class_name[0] is '@'
+          property = class_name.substr(1,class_name.length)
+          console.log 'prop', @, property
+          if @[property]?
+            if typeof(@[property]) is 'function'
+              console.log 'fun', property, @, @[property]()
+              classes.push @[property]()
+            else
+              console.log 'var', property, @, @[property]
+              classes.push @[property]
+        else
+          classes.push class_name
+    return classes

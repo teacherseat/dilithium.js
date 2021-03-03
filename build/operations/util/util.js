@@ -93,6 +93,60 @@ var Util = {
   },
   is_array: function is_array(value) {
     return value && _typeof(value) === 'object' && value instanceof Array && typeof value.length === 'number' && typeof value.splice === 'function' && !value.propertyIsEnumerable('length');
+  },
+  // This utility is to provide a shorthand
+  // when applying classes to html elements.
+  // The key is the class that will be applied
+  // The value is the expression to determine if the class should be applied
+  // A boolean of true here would set a class called active:
+  // eg. {'active': true}
+  // An a javascript expression as the evaluator
+  // eg. {'active': @hello is 'world'}
+  // You can use the coffeescript nil expression on variable
+  // eg. {'active': @active?}
+  // You can have dynamic keys that are either variables or functions
+  // They must be passed a string with the @ sign. If its a function
+  // it will simplify be called. The function takes no arguments
+  // If its a variable the string value will become the class name
+  // {
+  //   "@style": style?
+  // }
+  classes: function classes(hash) {
+    var apply_class_name, class_name, classes, expression, property;
+
+    if (!hash) {
+      return [];
+    }
+
+    console.log('hash', hash);
+    classes = [];
+
+    for (class_name in hash) {
+      expression = hash[class_name];
+      apply_class_name = typeof expression === 'function' && expression() === true || typeof expression === 'boolean' && expression === true;
+
+      if (apply_class_name) {
+        // variable or a function
+        if (class_name[0] === '@') {
+          property = class_name.substr(1, class_name.length);
+          console.log('prop', this, property);
+
+          if (this[property] != null) {
+            if (typeof this[property] === 'function') {
+              console.log('fun', property, this, this[property]());
+              classes.push(this[property]());
+            } else {
+              console.log('var', property, this, this[property]);
+              classes.push(this[property]);
+            }
+          }
+        } else {
+          classes.push(class_name);
+        }
+      }
+    }
+
+    return classes;
   }
 };
 exports.Util = Util;

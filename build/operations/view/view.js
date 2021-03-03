@@ -81,7 +81,7 @@ var View = /*#__PURE__*/function (_Base) {
         body_location = this.body.location;
       }
 
-      body_location || (body_location = (0, _inflection.singularize)((0, _inflection.tableize)(this.constructor.name)));
+      body_location || (body_location = (0, _inflection.underscore)(this.constructor.name));
 
       if (this.body && this.body.view) {
         body_view = this.body.view;
