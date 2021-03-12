@@ -300,7 +300,7 @@ var ApiBase = function () {
         extract = opts.extract;
         attrs = opts.attrs;
         return new Promise(function (resolve, reject) {
-          var ev_error, ev_success, form_data, headers_attrs, iso_pathless, k, serialize, v;
+          var ev_error, ev_request, ev_success, form_data, headers_attrs, iso_pathless, k, serialize, v;
           iso_pathless = iso_path === void 0;
           headers_attrs = {};
 
@@ -314,6 +314,14 @@ var ApiBase = function () {
             }
           }
 
+          ev_request = function ev_request(response) {
+            if (response.code === 200) {
+              return ev_success(response.data);
+            } else {
+              return ev_error(response.code, response.data);
+            }
+          };
+
           ev_success = function ev_success(data) {
             if (!iso_pathless) {
               (0, _events.$broadcast)(iso_path, data, attrs);
@@ -326,13 +334,19 @@ var ApiBase = function () {
             return resolve(data);
           };
 
-          ev_error = function ev_error(data) {
+          ev_error = function ev_error(code, data) {
+            var response;
+            response = {
+              code: code,
+              response: data
+            };
+
             if (!iso_pathless) {
-              (0, _events.$broadcast)("".concat(iso_path, "#err"), data, attrs);
+              (0, _events.$broadcast)("".concat(iso_path, "#err"), response, attrs);
             }
 
             if (typeof error === 'function') {
-              error(data, attrs);
+              error(response, attrs);
             }
 
             return resolve('api_error');
@@ -366,11 +380,22 @@ var ApiBase = function () {
               attrs.body = data;
             }
 
-            if (extract) {
-              attrs.extract = extract;
-            }
+            attrs.extract = function (xhr) {
+              var response;
+              response = {
+                xhr: xhr,
+                code: xhr.status,
+                data: JSON.parse(xhr.responseText)
+              };
 
-            return m.request(attrs).then(ev_success, ev_error);
+              if (extract) {
+                response = extract(response);
+              }
+
+              return response;
+            };
+
+            return m.request(attrs).then(ev_request);
           }
         });
       }

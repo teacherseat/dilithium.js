@@ -56,7 +56,6 @@ export class ApiBase
     error   = opts.error
     extract = opts.extract
     attrs   = opts.attrs
-
     new Promise (resolve,reject)->
       iso_pathless = (iso_path == undefined)
 
@@ -67,14 +66,21 @@ export class ApiBase
         else
           headers_attrs[k] = v
 
+      ev_request = (response)->
+        if response.code is 200
+          ev_success(response.data)
+        else
+          ev_error(response.code,response.data)
+
       ev_success = (data)->
         $broadcast iso_path, data, attrs unless iso_pathless
         success(data,attrs) if typeof success is 'function'
         resolve data
 
-      ev_error = (data)->
-        $broadcast "#{iso_path}#err", data, attrs unless iso_pathless
-        error(data,attrs) if typeof error is 'function'
+      ev_error = (code,data)->
+        response =  {code: code, response: data}
+        $broadcast "#{iso_path}#err", response, attrs unless iso_pathless
+        error(response,attrs) if typeof error is 'function'
         resolve 'api_error'
 
       if has_attached_file(data)
@@ -97,8 +103,16 @@ export class ApiBase
           attrs.params = data
         else
           attrs.body = data
-        attrs.extract = extract if extract
-        m.request(attrs).then(ev_success,ev_error)
+        attrs.extract = (xhr)=>
+          response =
+            xhr: xhr
+            code: xhr.status
+            data: JSON.parse(xhr.responseText)
+          response = extract(response) if extract
+          return response
+        m.request(attrs).then(ev_request)
+
+
   _extract_id:(model)=>
     if typeof model is 'string' || typeof model is 'number'
       model
