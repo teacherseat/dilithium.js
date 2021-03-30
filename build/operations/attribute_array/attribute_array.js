@@ -17,57 +17,63 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Represent an array of attributes
-// eg. a list of checkboxes
-var AttributeArray = /*#__PURE__*/function () {
-  function AttributeArray() {
-    _classCallCheck(this, AttributeArray);
+var AttributeArray = function () {
+  // Represent an array of attributes
+  // eg. a list of checkboxes
+  var AttributeArray = /*#__PURE__*/function () {
+    function AttributeArray() {
+      _classCallCheck(this, AttributeArray);
 
-    this.at = this.at.bind(this);
-    this.reset = this.reset.bind(this);
-    this.values = this.values.bind(this);
-    this.array = [];
-    this.value = (0, _stream["default"])(null);
-  }
-
-  _createClass(AttributeArray, [{
-    key: "at",
-    value: function at(v) {
-      return this.array[v];
-    }
-  }, {
-    key: "reset",
-    value: function reset(size) {
-      var i, ref, results, v;
+      this.at = this.at.bind(this);
+      this.reset = this.reset.bind(this);
+      this.values = this.values.bind(this);
       this.array = [];
-      results = [];
-
-      for (v = i = 0, ref = size - 1; 0 <= ref ? i <= ref : i >= ref; v = 0 <= ref ? ++i : --i) {
-        results.push(this.array.push(new _attribute.Attribute()));
-      }
-
-      return results;
+      this.value = (0, _stream["default"])([]);
     }
-  }, {
-    key: "values",
-    value: function values() {
-      var a, i, len, ref, values;
-      values = [];
-      ref = this.array;
 
-      for (i = 0, len = ref.length; i < len; i++) {
-        a = ref[i];
+    _createClass(AttributeArray, [{
+      key: "at",
+      value: function at(v) {
+        return this.array[v];
+      }
+    }, {
+      key: "reset",
+      value: function reset(size) {
+        var i, ref, results, v;
+        this.array = [];
+        results = [];
 
-        if (a.value()) {
-          values.push(a.value());
+        for (v = i = 0, ref = size - 1; 0 <= ref ? i <= ref : i >= ref; v = 0 <= ref ? ++i : --i) {
+          results.push(this.array.push(new _attribute.Attribute()));
         }
+
+        return results;
       }
+    }, {
+      key: "values",
+      value: function values() {
+        var a, i, len, ref, values;
+        values = [];
+        ref = this.array;
 
-      return values;
-    }
-  }]);
+        for (i = 0, len = ref.length; i < len; i++) {
+          a = ref[i];
 
+          if (a.value()) {
+            values.push(a.value());
+          }
+        }
+
+        return values;
+      }
+    }]);
+
+    return AttributeArray;
+  }();
+
+  ;
+  AttributeArray.prototype._attribute_type = 'AttributeArray';
   return AttributeArray;
-}();
+}.call(void 0);
 
 exports.AttributeArray = AttributeArray;

@@ -2,6 +2,7 @@ import stream from 'mithril/stream'
 # Represent an array of models
 # eg. a list of checkboxes
 export class AttributeModelArray
+  _attribute_type: 'AttributeModelArray'
   constructor:->
     @array = []
     @value = stream(null)

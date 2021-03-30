@@ -109,6 +109,7 @@ request_wrap = function request_wrap(method) {
 };
 
 var ApiBase = function () {
+  // namespace - can either be a function or a string
   var ApiBase = /*#__PURE__*/function () {
     function ApiBase() {
       _classCallCheck(this, ApiBase);
@@ -145,7 +146,12 @@ var ApiBase = function () {
       key: "path",
       value: function path() {
         var namespace, path;
-        namespace = this.namespace;
+
+        if (typeof this.namespace === 'function') {
+          namespace = this.namespace();
+        } else {
+          namespace = this.namespace;
+        }
 
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];

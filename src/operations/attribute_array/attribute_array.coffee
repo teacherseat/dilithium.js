@@ -4,9 +4,10 @@ import { Attribute } from './../attribute/attribute.js'
 # Represent an array of attributes
 # eg. a list of checkboxes
 export class AttributeArray
+  _attribute_type: 'AttributeArray'
   constructor:->
     @array = []
-    @value = stream(null)
+    @value = stream([])
   at:(v)=>
     @array[v]
   reset:(size)=>
@@ -19,5 +20,3 @@ export class AttributeArray
       if a.value()
         values.push a.value()
     values
-
-

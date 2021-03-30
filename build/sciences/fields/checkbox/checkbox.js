@@ -59,12 +59,28 @@ var Checkbox = function () {
     _createClass(Checkbox, [{
       key: "ev_onclick",
       value: function ev_onclick(ev) {
+        var index;
         boundMethodCheck(this, Checkbox);
 
-        if (this.attribute.value()) {
-          return this.attribute.value(this.value_unselected);
-        } else {
-          return this.attribute.value(this.value);
+        switch (this.attribute._attribute_type) {
+          case 'AttributeArray':
+            index = this.attribute.value().indexOf(this.value);
+
+            if (index === -1) {
+              return this.attribute.value().push(this.value);
+            } else {
+              return this.attribute.value().splice(index, 1);
+            }
+
+            break;
+
+          case 'Attribute':
+            if (this.attribute.value()) {
+              return this.attribute.value(this.value_unselected);
+            } else {
+              return this.attribute.value(this.value);
+            }
+
         }
       }
     }, {
@@ -73,12 +89,26 @@ var Checkbox = function () {
         var attrs;
         boundMethodCheck(this, Checkbox);
         attrs = {
-          onclick: this.ev_onclick,
-          value: this.attribute.value()
+          onclick: this.ev_onclick
         };
 
-        if (this.attribute.value()) {
-          attrs.checked = true;
+        switch (this.attribute._attribute_type) {
+          case 'AttributeArray':
+            attrs.value = this.attribute.value().indexOf(this.value) !== -1;
+
+            if (this.attribute.value().indexOf(this.value) !== -1) {
+              attrs.checked = true;
+            }
+
+            break;
+
+          case 'Attribute':
+            attrs.value = this.attribute.value();
+
+            if (this.attribute.value()) {
+              attrs.checked = true;
+            }
+
         }
 
         return attrs;

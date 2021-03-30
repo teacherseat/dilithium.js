@@ -44,6 +44,7 @@ request_wrap = (method)=>
   (url, data, iso_path)=>
     ApiBase._request iso_path, method, url, undefined, data, undefined, undefined
 
+# namespace - can either be a function or a string
 export class ApiBase
   get    : request_wrap 'GET'
   post   : request_wrap 'POST'
@@ -122,7 +123,11 @@ export class ApiBase
       else
         model.id
   path:(args...)=>
-    namespace = @namespace
+    if typeof @namespace is 'function'
+      namespace = @namespace()
+    else
+      namespace = @namespace
+
     if(args[0] instanceof Array)
       path = args[0]
       if(args[1])
