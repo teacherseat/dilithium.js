@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4'
-import { $register, $deregister } from './../events/events.js'
+import { $register, $deregister } from './../events/events'
 
 export class Base
   # unique way of indentifying each components

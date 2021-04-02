@@ -1,5 +1,5 @@
 import * as m from 'mithril'
-import { $broadcast } from './../events/events.js'
+import { $broadcast } from './../events/events'
 
 parameter_name = (root)->
 

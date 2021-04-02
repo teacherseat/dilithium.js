@@ -1,5 +1,5 @@
-import { Base } from './../base/base.js'
-import { Util } from './../util/util.js'
+import { Base } from './../base/base'
+import { Util } from './../util/util'
 
 RenderUndefined = (message,component,scope)->
    this.message   = message
