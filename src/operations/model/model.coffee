@@ -20,7 +20,7 @@ export class Model
   params:(opts={})=>
     attrs = {}
     attrs.id = @id()
-    for k,v of @attributes
+    for k,attribute_fun of @attributes
       # if the exclude key exists ignore it.
       if !!opts.exclude is false || (opts.exclude && opts.exclude.indexOf(k) is -1)
         # rename key
@@ -30,11 +30,12 @@ export class Model
         else
           k
 
-        if v is 'ArrayModelAttribute'
+      switch attribute_fun()._attribute_type
+        when 'AttributeModelArray'
           attrs[key] = @[k].values()
-        else if v is 'ArrayAttribute'
+        when 'AttributeArray'
           attrs[key] = @[k].values()
-        else
+        when 'Attribute'
           attrs[key] = @[k].value()
     attrs
   reset:(attrs={})=>

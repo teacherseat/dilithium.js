@@ -61,25 +61,30 @@ var Model = /*#__PURE__*/function () {
     key: "params",
     value: function params() {
       var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var attrs, k, key, ref, v;
+      var attribute_fun, attrs, k, key, ref;
       attrs = {};
       attrs.id = this.id();
       ref = this.attributes;
 
       for (k in ref) {
-        v = ref[k];
+        attribute_fun = ref[k];
 
         if (!!opts.exclude === false || opts.exclude && opts.exclude.indexOf(k) === -1) {
           // rename key
           key = opts.rename ? opts.rename[k] || k : k;
+        }
 
-          if (v === 'ArrayModelAttribute') {
+        switch (attribute_fun()._attribute_type) {
+          case 'AttributeModelArray':
             attrs[key] = this[k].values();
-          } else if (v === 'ArrayAttribute') {
+            break;
+
+          case 'AttributeArray':
             attrs[key] = this[k].values();
-          } else {
+            break;
+
+          case 'Attribute':
             attrs[key] = this[k].value();
-          }
         }
       }
 
