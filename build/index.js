@@ -191,9 +191,9 @@ Object.defineProperty(exports, "CollectionView", {
 });
 exports.Link = exports.param = void 0;
 
-var _mithril = require("../node_modules/mithril");
+var _mithril = require("mithril");
 
-var _stream = _interopRequireDefault(require("../node_modules/mithril/stream"));
+var _stream = _interopRequireDefault(require("mithril/stream"));
 
 var _events = require("./operations/events/events");
 

@@ -1,4 +1,4 @@
-import stream from '../../../node_modules/mithril/stream'
+import stream from 'mithril/stream'
 
 
 export class Model

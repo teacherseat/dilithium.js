@@ -7,7 +7,7 @@ exports.View = void 0;
 
 var _inflection = require("inflection");
 
-var _mithril = require("../../../node_modules/mithril");
+var _mithril = require("mithril");
 
 var _base = require("./../base/base.js");
 
@@ -54,9 +54,9 @@ var View = /*#__PURE__*/function (_Base) {
 
     _classCallCheck(this, View);
 
-    _this = _super.call(this, args); // reindex is where you would normally make
-    // your api call. If reindex is not overwritten
-    // then it will immediately return sucess telling
+    _this = _super.call(this, args); //# reindex is where you would normally make
+    //# your api call. If reindex is not overwritten
+    //# then it will immediately return sucess telling
     // the page to load.
 
     _this.reindex = _this.reindex.bind(_assertThisInitialized(_this)); // success is where you would assign the return data
@@ -108,10 +108,8 @@ var View = /*#__PURE__*/function (_Base) {
     key: "onremove",
     value: function onremove(vnode) {
       boundMethodCheck(this, View);
-
-      if (this.body_class) {
-        return document.body.classList.remove(this.body_class);
-      }
+      document.body.removeAttribute('location');
+      return document.body.removeAttribute('view');
     }
   }, {
     key: "err",

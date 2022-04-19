@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Checkbox = void 0;
 
-var _mithril = require("../../../../node_modules/mithril");
+var _mithril = require("mithril");
 
 var _component = require("./../../../operations/component/component.js");
 

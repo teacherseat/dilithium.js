@@ -1,4 +1,4 @@
-import { m } from '../../../../node_modules/mithril'
+import { m } from 'mithril'
 
 import { Component } from './../../../operations/component/component.js'
 
