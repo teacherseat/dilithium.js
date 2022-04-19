@@ -52,3 +52,7 @@ you'll see something like this in your package.json
 }
 ```
 
+## Debugging
+
+If pathing is not resolving you can temporarily change the mithril path
+to be relatve.
