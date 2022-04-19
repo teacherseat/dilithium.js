@@ -7,7 +7,7 @@ exports.View = void 0;
 
 var _inflection = require("inflection");
 
-var _mithril = require("mithril");
+var _mithril = require("../../../node_modules/mithril");
 
 var _base = require("./../base/base.js");
 
@@ -119,11 +119,13 @@ var View = /*#__PURE__*/function (_Base) {
       boundMethodCheck(this, View);
 
       if (_err.code === 403) {
+        // 403 is access denied
         if (_err.response && _err.response.redirect_to) {
           return window.location.href = _err.response.redirect_to;
         } else {
           return window.location.href = '/';
-        }
+        } // 404 is page not found, send them to home page
+
       } else if (_err.code === 404) {
         return window.location.href = '/';
       }
@@ -139,7 +141,9 @@ var View = /*#__PURE__*/function (_Base) {
   }, {
     key: "view",
     value: function view(vnode) {
-      if (this.loading) {
+      if (this.page_error && this.page_error.template) {
+        return this.page_error.template(vnode);
+      } else if (this.loading) {
         return (0, _mithril.m)('.loading');
       } else {
         return this.render(vnode);

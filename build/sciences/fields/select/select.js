@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Select = void 0;
 
-var _mithril = require("mithril");
+var _mithril = require("../../../../node_modules/mithril");
 
 var _component = require("./../../../operations/component/component.js");
 
@@ -72,6 +72,7 @@ var Select = function () {
       value: function attrs() {
         var attrs;
         boundMethodCheck(this, Select);
+        console.log('attrs', this.handle, this.attribute.value());
         attrs = {
           onchange: this.ev_onchange,
           value: this.attribute.value()
@@ -82,6 +83,7 @@ var Select = function () {
       key: "option",
       value: function option(_option) {
         boundMethodCheck(this, Select);
+        console.log(this.handle, this.attribute.value(), _option.id, _option.id === this.attribute.value());
         return (0, _mithril.m)('option', {
           value: _option.id
         }, _option.name);
@@ -91,6 +93,7 @@ var Select = function () {
       value: function view(vnode) {
         var option;
         boundMethodCheck(this, Select);
+        console.log('select');
         return (0, _mithril.m)(".field.select.".concat(this.handle), this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("select", this.attrs(), this.include_blank ? (0, _mithril.m)('option') : void 0, function () {
           var i, len, ref, results;
           ref = this.options;

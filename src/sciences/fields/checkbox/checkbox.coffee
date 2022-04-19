@@ -1,4 +1,5 @@
-import { m } from 'mithril'
+import { m } from '../../../../node_modules/mithril'
+
 import { Component } from './../../../operations/component/component.js'
 
 export class Checkbox extends Component

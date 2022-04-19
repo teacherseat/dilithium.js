@@ -1,4 +1,4 @@
-import stream from 'mithril/stream'
+import stream from '../../../node_modules/mithril/stream'
 # Represent an array of models
 # eg. a list of checkboxes
 export class AttributeModelArray

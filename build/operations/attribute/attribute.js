@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Attribute = void 0;
 
-var _stream = _interopRequireDefault(require("mithril/stream"));
+var _stream = _interopRequireDefault(require("../../../node_modules/mithril/stream"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

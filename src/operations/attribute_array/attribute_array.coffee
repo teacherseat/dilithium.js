@@ -1,4 +1,4 @@
-import stream from 'mithril/stream'
+import stream from '../../../node_modules/mithril/stream'
 import { Attribute } from './../attribute/attribute.js'
 
 # Represent an array of attributes

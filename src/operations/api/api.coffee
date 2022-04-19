@@ -1,4 +1,5 @@
-import * as m from 'mithril'
+import * as m from '../../../node_modules/mithril'
+
 import { $broadcast } from './../events/events.js'
 
 parameter_name = (root)->
