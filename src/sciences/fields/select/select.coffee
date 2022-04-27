@@ -17,16 +17,13 @@ export class Select extends Component
     if @onchange
       @onchange(ev.target.value)
   attrs:=>
-    console.log 'attrs', @handle, @attribute.value()
     attrs =
       onchange: @ev_onchange
       value: @attribute.value()
     attrs
   option:(option)=>
-    console.log @handle, @attribute.value(), option.id, option.id is @attribute.value()
     m 'option', value: option.id, option.name
   view:(vnode)=>
-    console.log 'select'
     m ".field.select.#{@handle}",
       if @label
         m 'label', @label
