@@ -31,7 +31,7 @@ var Attribute = function () {
       value: function value(_value) {
         if (_value === void 0) {
           return this._value();
-        } else if (typeof _value === 'string' && String.trim(_value) === '') {
+        } else if (typeof _value === 'string' && _value.trim() === '') {
           return this._value(null);
         } else if (_value === null) {
           return this._value(null);

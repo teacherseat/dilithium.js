@@ -9,7 +9,7 @@ export class Attribute
   value:(value)=>
     if value is undefined
       @_value()
-    else if typeof value is 'string' && String.trim(value) is ''
+    else if typeof value is 'string' && value.trim() is ''
       @_value(null)
     else if value is null
       @_value(null)
