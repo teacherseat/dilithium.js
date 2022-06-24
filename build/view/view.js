@@ -7,7 +7,7 @@ exports.View = void 0;
 
 var _inflection = require("inflection");
 
-var _mithril = require("/mithril");
+var _mithril = require("mithril");
 
 var _base = require("./../base/base.js");
 

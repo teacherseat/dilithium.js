@@ -1,4 +1,4 @@
-import { m } from '/mithril'
+import { m } from 'mithril'
 import { Component } from './../component/component.js'
 
 export class InputText extends Component

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ApiBase = void 0;
 
-var m = _interopRequireWildcard(require("/mithril"));
+var m = _interopRequireWildcard(require("mithril"));
 
 var _events = require("./../events/events.js");
 

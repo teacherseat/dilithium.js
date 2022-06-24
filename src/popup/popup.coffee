@@ -1,5 +1,5 @@
-import { m } from '/mithril'
-import stream from '/mithril/stream'
+import { m } from 'mithril'
+import stream from 'mithril/stream'
 import { Component } from './../component/component'
 
 export class Popup extends Component

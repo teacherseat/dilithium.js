@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.AttributeArray = void 0;
 
-var _stream = _interopRequireDefault(require("/mithril/stream"));
+var _stream = _interopRequireDefault(require("mithril/stream"));
 
 var _attribute = require("./../attribute/attribute.js");
 

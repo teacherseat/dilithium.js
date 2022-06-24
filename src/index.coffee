@@ -1,5 +1,5 @@
-import { m, redraw, trust, mount, route } from './../node_modules/mithril'
-import stream from './../node_modules/mithril/stream'
+import { m, redraw, trust, mount, route } from '/mithril'
+import stream from 'mithril/stream'
 
 param  = route.param
 Link   = route.Link

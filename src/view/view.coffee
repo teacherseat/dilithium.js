@@ -1,5 +1,5 @@
 import { underscore } from 'inflection'
-import { m } from '/mithril'
+import { m } from 'mithril'
 import { Base } from './../base/base.js'
 
 export class View extends Base
