@@ -120,49 +120,49 @@ Object.defineProperty(exports, "Form", {
 Object.defineProperty(exports, "Checkbox", {
   enumerable: true,
   get: function get() {
-    return _checkbox.Checkbox;
+    return _field_checkbox.Checkbox;
   }
 });
 Object.defineProperty(exports, "ErrorMsg", {
   enumerable: true,
   get: function get() {
-    return _err.ErrorMsg;
+    return _field_err.ErrorMsg;
   }
 });
 Object.defineProperty(exports, "FileField", {
   enumerable: true,
   get: function get() {
-    return _file.FileField;
+    return _field_file.FileField;
   }
 });
 Object.defineProperty(exports, "InputPassword", {
   enumerable: true,
   get: function get() {
-    return _input_password.InputPassword;
+    return _field_input_password.InputPassword;
   }
 });
 Object.defineProperty(exports, "InputText", {
   enumerable: true,
   get: function get() {
-    return _input_text.InputText;
+    return _field_input_text.InputText;
   }
 });
 Object.defineProperty(exports, "Radio", {
   enumerable: true,
   get: function get() {
-    return _radio.Radio;
+    return _field_radio.Radio;
   }
 });
 Object.defineProperty(exports, "Textarea", {
   enumerable: true,
   get: function get() {
-    return _textarea.Textarea;
+    return _field_textarea.Textarea;
   }
 });
 Object.defineProperty(exports, "Select", {
   enumerable: true,
   get: function get() {
-    return _select.Select;
+    return _field_select.Select;
   }
 });
 Object.defineProperty(exports, "ListView", {
@@ -191,57 +191,57 @@ Object.defineProperty(exports, "CollectionView", {
 });
 exports.Link = exports.param = void 0;
 
-var _mithril = require("mithril");
+var _mithril = require("./../node_modules/mithril");
 
-var _stream = _interopRequireDefault(require("mithril/stream"));
+var _stream = _interopRequireDefault(require("./../node_modules/mithril/stream"));
 
-var _events = require("./operations/events/events");
+var _events = require("./events/events");
 
-var _api = require("./operations/api/api");
+var _api = require("./api/api");
 
-var _component = require("./operations/component/component");
+var _component = require("./component/component");
 
-var _view = require("./operations/view/view");
+var _view = require("./view/view");
 
-var _util = require("./operations/util/util");
+var _util = require("./util/util");
 
-var _model = require("./operations/model/model");
+var _model = require("./model/model");
 
-var _attribute = require("./operations/attribute/attribute");
+var _attribute = require("./attribute/attribute");
 
-var _attribute_array = require("./operations/attribute_array/attribute_array");
+var _attribute_array = require("./attribute_array/attribute_array");
 
-var _attribute_model_array = require("./operations/attribute_model_array/attribute_model_array");
+var _attribute_model_array = require("./attribute_model_array/attribute_model_array");
 
-var _location = require("./operations/location/location");
+var _location = require("./location/location");
 
-var _popup = require("./sciences/popup/popup");
+var _popup = require("./popup/popup");
 
-var _form = require("./sciences/form/form");
+var _form = require("./form/form");
 
-var _checkbox = require("./sciences/fields/checkbox/checkbox");
+var _field_checkbox = require("./field_checkbox/field_checkbox");
 
-var _err = require("./sciences/fields/err/err");
+var _field_err = require("./field_err/field_err");
 
-var _file = require("./sciences/fields/file/file");
+var _field_file = require("./field_file/field_file");
 
-var _input_password = require("./sciences/fields/input_password/input_password");
+var _field_input_password = require("./field_input_password/field_input_password");
 
-var _input_text = require("./sciences/fields/input_text/input_text");
+var _field_input_text = require("./field_input_text/field_input_text");
 
-var _radio = require("./sciences/fields/radio/radio");
+var _field_radio = require("./field_radio/field_radio");
 
-var _textarea = require("./sciences/fields/textarea/textarea");
+var _field_textarea = require("./field_textarea/field_textarea");
 
-var _select = require("./sciences/fields/select/select");
+var _field_select = require("./field_select/field_select");
 
-var _list = require("./command/list/list");
+var _list = require("./list/list");
 
-var _show = require("./command/show/show");
+var _show = require("./show/show");
 
-var _member = require("./command/member/member");
+var _member = require("./member/member");
 
-var _collection = require("./command/collection/collection");
+var _collection = require("./collection/collection");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

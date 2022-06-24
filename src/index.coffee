@@ -1,5 +1,5 @@
-import { m, redraw, trust, mount, route } from 'mithril'
-import stream from 'mithril/stream'
+import { m, redraw, trust, mount, route } from './../node_modules/mithril'
+import stream from './../node_modules/mithril/stream'
 
 param  = route.param
 Link   = route.Link
@@ -8,31 +8,31 @@ export { m, redraw, trust, mount, route, param, Link }
 export { stream }
 
 # Operations
-export { $register, $broadcast } from './operations/events/events'
-export { ApiBase   }             from './operations/api/api'
-export { Component }             from './operations/component/component'
-export { View }                  from './operations/view/view'
-export { Util }                  from './operations/util/util'
-export { Model }                 from './operations/model/model'
-export { Attribute }             from './operations/attribute/attribute'
-export { AttributeArray }        from './operations/attribute_array/attribute_array'
-export { AttributeModelArray }   from './operations/attribute_model_array/attribute_model_array'
-export { $location }             from './operations/location/location'
+export { $register, $broadcast } from './events/events'
+export { ApiBase   }             from './api/api'
+export { Component }             from './component/component'
+export { View }                  from './view/view'
+export { Util }                  from './util/util'
+export { Model }                 from './model/model'
+export { Attribute }             from './attribute/attribute'
+export { AttributeArray }        from './attribute_array/attribute_array'
+export { AttributeModelArray }   from './attribute_model_array/attribute_model_array'
+export { $location }             from './location/location'
 
 # Sciences
-export { Popup }         from './sciences/popup/popup'
-export { Form }          from './sciences/form/form'
-export { Checkbox }      from './sciences/fields/checkbox/checkbox'
-export { ErrorMsg }      from './sciences/fields/err/err'
-export { FileField }     from './sciences/fields/file/file'
-export { InputPassword } from './sciences/fields/input_password/input_password'
-export { InputText }     from './sciences/fields/input_text/input_text'
-export { Radio }         from './sciences/fields/radio/radio'
-export { Textarea }      from './sciences/fields/textarea/textarea'
-export { Select }        from './sciences/fields/select/select'
+export { Popup }         from './popup/popup'
+export { Form }          from './form/form'
+export { Checkbox }      from './field_checkbox/field_checkbox'
+export { ErrorMsg }      from './field_err/field_err'
+export { FileField }     from './field_file/field_file'
+export { InputPassword } from './field_input_password/field_input_password'
+export { InputText }     from './field_input_text/field_input_text'
+export { Radio }         from './field_radio/field_radio'
+export { Textarea }      from './field_textarea/field_textarea'
+export { Select }        from './field_select/field_select'
 
 # Command
-export { ListView }              from './command/list/list'
-export { ShowView }              from './command/show/show'
-export { MemberView }            from './command/member/member'
-export { CollectionView }        from './command/collection/collection'
+export { ListView }              from './list/list'
+export { ShowView }              from './show/show'
+export { MemberView }            from './member/member'
+export { CollectionView }        from './collection/collection'

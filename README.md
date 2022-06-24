@@ -35,7 +35,7 @@ cake compile
 The compiled code will output to the `build` directory
 
 
-## How to specific local package for development
+## How to specify local package for development
 
 
 npm 2.0 supprts installing local packages with the following command:
@@ -54,5 +54,28 @@ you'll see something like this in your package.json
 
 ## Debugging
 
-If pathing is not resolving you can temporarily change the mithril path
-to be relatve.
+When you attempt to reference dilithium.js with a local path for
+development you will run into this error.
+
+```
+ERROR in /Users/andrewbrown/Sites/teacherseat/dilithium.js/build/popup/popup.js
+Module not found: Error: Can't resolve 'mithril/stream' in '/Users/andrewbrown/Sites/teacherseat/dilithium.js/build/popup'
+ @ /Users/andrewbrown/Sites/teacherseat/dilithium.js/build/popup/popup.js 10:37-62
+ @ /Users/andrewbrown/Sites/teacherseat/dilithium.js/build/index.js
+ @ ./javascripts/app.coffee
+```
+
+
+What you need to do is temporary mass find and replace on src from this:
+
+```
+import * as m from 'mithril'
+```
+
+to this:
+
+```
+import * as m from './../../node_modules/mithril'
+```
+
+And then you need to revert it back when you've updated dilithium.js
