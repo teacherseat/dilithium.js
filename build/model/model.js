@@ -72,21 +72,19 @@ var Model = /*#__PURE__*/function () {
         if (!!opts.exclude === false || opts.exclude && opts.exclude.indexOf(k) === -1) {
           // rename key
           key = opts.rename ? opts.rename[k] || k : k;
-        } else {
-          key = k;
-        }
 
-        switch (attribute_fun()._attribute_type) {
-          case 'AttributeModelArray':
-            attrs[key] = this[k].values();
-            break;
+          switch (attribute_fun()._attribute_type) {
+            case 'AttributeModelArray':
+              attrs[key] = this[k].values();
+              break;
 
-          case 'AttributeArray':
-            attrs[key] = this[k].values();
-            break;
+            case 'AttributeArray':
+              attrs[key] = this[k].values();
+              break;
 
-          case 'Attribute':
-            attrs[key] = this[k].value();
+            case 'Attribute':
+              attrs[key] = this[k].value();
+          }
         }
       }
 

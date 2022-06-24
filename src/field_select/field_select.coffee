@@ -29,6 +29,10 @@ export class Select extends Component
         m 'label', @label
       m "select", @attrs(),
         if @include_blank
-          m 'option'
+          if typeof(@include_blank) is 'string'
+            m 'option',
+              @include_blank
+          else
+            m 'option'
         for option in @options
           @option(option)

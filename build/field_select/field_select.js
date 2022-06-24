@@ -91,7 +91,7 @@ var Select = function () {
       value: function view(vnode) {
         var option;
         boundMethodCheck(this, Select);
-        return (0, _mithril.m)(".field.select.".concat(this.handle), this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("select", this.attrs(), this.include_blank ? (0, _mithril.m)('option') : void 0, function () {
+        return (0, _mithril.m)(".field.select.".concat(this.handle), this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("select", this.attrs(), this.include_blank ? typeof this.include_blank === 'string' ? (0, _mithril.m)('option', this.include_blank) : (0, _mithril.m)('option') : void 0, function () {
           var i, len, ref, results;
           ref = this.options;
           results = [];

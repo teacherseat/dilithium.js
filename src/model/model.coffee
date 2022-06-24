@@ -21,7 +21,7 @@ export class Model
     attrs = {}
     attrs.id = @id()
     for k,attribute_fun of @attributes
-      # if the exclude key exists ignore it.
+      # if the exclude key exists ignore this attribute
       if !!opts.exclude is false || (opts.exclude && opts.exclude.indexOf(k) is -1)
         # rename key
         key =
@@ -29,16 +29,14 @@ export class Model
           opts.rename[k] || k
         else
           k
-      else
-        key = k
 
-      switch attribute_fun()._attribute_type
-        when 'AttributeModelArray'
-          attrs[key] = @[k].values()
-        when 'AttributeArray'
-          attrs[key] = @[k].values()
-        when 'Attribute'
-          attrs[key] = @[k].value()
+        switch attribute_fun()._attribute_type
+          when 'AttributeModelArray'
+            attrs[key] = @[k].values()
+          when 'AttributeArray'
+            attrs[key] = @[k].values()
+          when 'Attribute'
+            attrs[key] = @[k].value()
     attrs
   reset:(attrs={})=>
     @id(attrs.id || null)
