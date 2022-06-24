@@ -1,4 +1,4 @@
-import { m, redraw, trust, mount, route } from '/mithril'
+import { m, redraw, trust, mount, route } from 'mithril'
 import stream from 'mithril/stream'
 
 param  = route.param

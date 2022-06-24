@@ -191,7 +191,7 @@ Object.defineProperty(exports, "CollectionView", {
 });
 exports.Link = exports.param = void 0;
 
-var _mithril = require("/mithril");
+var _mithril = require("mithril");
 
 var _stream = _interopRequireDefault(require("mithril/stream"));
 
