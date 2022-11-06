@@ -129,6 +129,11 @@ export class ApiBase
     else
       namespace = @namespace
 
+    if typeof @host is 'function'
+      host = @host()
+    else
+      host = @host
+
     if(args[0] instanceof Array)
       path = args[0]
       if(args[1])
@@ -141,10 +146,16 @@ export class ApiBase
     # allows namespace to be either:
     # namespace: 'admin/api/student'
     # namespace: '/admin/api/student'
+    path =
     if path.charAt(0) is '/'
       path
     else
       "/#{path}"
+
+    if host
+      "#{host}#{path}"
+    else
+      path
   _resource:(tn,options)=>
     ns = options.namespace
     only = {index: true, new: true, create: true, show: true, edit: true, update: true, destroy: true}

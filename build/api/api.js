@@ -145,12 +145,18 @@ var ApiBase = function () {
     }, {
       key: "path",
       value: function path() {
-        var namespace, path;
+        var host, namespace, path;
 
         if (typeof this.namespace === 'function') {
           namespace = this.namespace();
         } else {
           namespace = this.namespace;
+        }
+
+        if (typeof this.host === 'function') {
+          host = this.host();
+        } else {
+          host = this.host;
         }
 
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -175,10 +181,12 @@ var ApiBase = function () {
         // namespace: 'admin/api/student'
         // namespace: '/admin/api/student'
 
-        if (path.charAt(0) === '/') {
-          return path;
+        path = path.charAt(0) === '/' ? path : "/".concat(path);
+
+        if (host) {
+          return "".concat(host).concat(path);
         } else {
-          return "/".concat(path);
+          return path;
         }
       }
     }, {
