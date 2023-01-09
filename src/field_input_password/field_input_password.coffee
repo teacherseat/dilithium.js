@@ -9,6 +9,12 @@ export class InputPassword extends Component
       allow_nil: true
     placeholder:
       allow_nil: true
+    inputmode:
+      allow_nil: true
+    pattern:
+      allow_nil: true
+    autocomplete:
+      allow_nil: true
     onchange:
       allow_nil: true
   _onchange:(ev)=>
@@ -20,6 +26,9 @@ export class InputPassword extends Component
       onchange: @_onchange
       value: @attribute.value()
     attrs.placeholder = @placeholder if @placeholder
+    attrs.inputmode = @inputmode if @inputmode
+    attrs.pattern = @pattern if @pattern
+    attrs.autocomplete = @autocomplete if @autocomplete
     attrs
   classes:=>
     if @attribute.errors().length > 0

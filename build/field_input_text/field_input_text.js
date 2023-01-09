@@ -81,6 +81,18 @@ var InputText = function () {
           attrs.placeholder = this.placeholder;
         }
 
+        if (this.inputmode) {
+          attrs.inputmode = this.inputmode;
+        }
+
+        if (this.pattern) {
+          attrs.pattern = this.pattern;
+        }
+
+        if (this.autocomplete) {
+          attrs.autocomplete = this.autocomplete;
+        }
+
         return attrs;
       }
     }, {
@@ -115,6 +127,15 @@ var InputText = function () {
       allow_nil: true
     },
     placeholder: {
+      allow_nil: true
+    },
+    inputmode: {
+      allow_nil: true
+    },
+    pattern: {
+      allow_nil: true
+    },
+    autocomplete: {
       allow_nil: true
     },
     onchange: {
