@@ -380,7 +380,9 @@ var ApiBase = function () {
               serialize: serialize,
               headers: headers_attrs
             };
-            return m.request(attrs).then(ev_success, ev_error);
+            return m.request(attrs).then(ev_success, ev_error)["catch"](function (e) {
+              return ev_error('502', e);
+            });
           } else {
             attrs = {
               method: method,
@@ -409,7 +411,9 @@ var ApiBase = function () {
               return response;
             };
 
-            return m.request(attrs).then(ev_request);
+            return m.request(attrs).then(ev_request)["catch"](function (e) {
+              return ev_error('502', e);
+            });
           }
         });
       }

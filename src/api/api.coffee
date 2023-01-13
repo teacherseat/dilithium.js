@@ -95,7 +95,7 @@ export class ApiBase
           body      : form_data
           serialize : serialize
           headers   : headers_attrs
-        m.request(attrs).then(ev_success,ev_error)
+        m.request(attrs).then(ev_success,ev_error).catch((e)=> ev_error '502', e)
       else
         attrs =
           method : method
@@ -112,7 +112,7 @@ export class ApiBase
             data: JSON.parse(xhr.responseText)
           response = extract(response) if extract
           return response
-        m.request(attrs).then(ev_request)
+        m.request(attrs).then(ev_request).catch((e)=> ev_error '502', e)
 
 
   _extract_id:(model)=>
