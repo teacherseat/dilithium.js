@@ -1,86 +1,68 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Component = void 0;
-
 var _base = require("./../base/base.js");
-
 var _util = require("./../util/util.js");
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-// Generated by CoffeeScript 2.5.1
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+// Generated by CoffeeScript 2.7.0
 var ExpectedComponentAttributes,
-    RenderUndefined,
-    boundMethodCheck = function boundMethodCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new Error('Bound instance method accessed before binding');
-  }
-};
-
+  RenderUndefined,
+  boundMethodCheck = function boundMethodCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new Error('Bound instance method accessed before binding');
+    }
+  };
 RenderUndefined = function RenderUndefined(message, component, scope) {
   this.message = message;
   this.component = component;
   return this.scope = scope;
 };
-
 ExpectedComponentAttributes = function ExpectedComponentAttributes(message, attribute, component, scope) {
   this.message = message;
   this.attribute = attribute;
   this.component = component;
   return this.scope = scope;
 };
-
 var Component = /*#__PURE__*/function (_Base) {
   _inherits(Component, _Base);
-
   var _super = _createSuper(Component);
-
   function Component(args) {
     var _this;
-
     _classCallCheck(this, Component);
-
     _this = _super.call(this, args);
     _this.oninit = _this.oninit.bind(_assertThisInitialized(_this));
-    _this["class"] = _this["class"].bind(_assertThisInitialized(_this)); // Internal functions
+    _this["class"] = _this["class"].bind(_assertThisInitialized(_this));
+    // Internal functions
     // ------------------
     // Theses are are preceeded by an _
     // to indicate they are internal functions
     // and should generally not be called manually
+
     // automatically map attributes
     // If expects is present only strictly
     // map attributes defined in expects
     // and validate the expects requirements
-
-    _this._map_attributes = _this._map_attributes.bind(_assertThisInitialized(_this)); // A componenets expects specific attributes
+    _this._map_attributes = _this._map_attributes.bind(_assertThisInitialized(_this));
+    // A componenets expects specific attributes
     // in order to work. These are defined as such:
+
     //```
     //class Materials extends Component
     //  expects:
@@ -93,28 +75,23 @@ var Component = /*#__PURE__*/function (_Base) {
     //      allow_nil: true
     //    task: Task
     //```
+
     //If it does not meet expectations throw
     //an error
-
     _this._check_expected_attribute = _this._check_expected_attribute.bind(_assertThisInitialized(_this));
     _this.render = _this.render.bind(_assertThisInitialized(_this));
     _this._classes = [];
     return _this;
   }
-
   _createClass(Component, [{
     key: "oninit",
     value: function oninit(vnode) {
       var fun;
       boundMethodCheck(this, Component);
-
       _get(_getPrototypeOf(Component.prototype), "oninit", this).call(this, vnode);
-
       fun = _util.Util.classes.bind(this);
       this._classes = fun(vnode.attrs["class"]);
-
       this._map_attributes(vnode.attrs);
-
       return true;
     }
   }, {
@@ -123,11 +100,8 @@ var Component = /*#__PURE__*/function (_Base) {
       if (!vnode) {
         return;
       }
-
       this._classes = _util.Util.classes(vnode.attrs["class"]);
-
       this._map_attributes(vnode.attrs);
-
       return true;
     }
   }, {
@@ -143,25 +117,20 @@ var Component = /*#__PURE__*/function (_Base) {
     value: function _map_attributes(attrs) {
       var k, ref, results, results1, v;
       boundMethodCheck(this, Component);
-
       if (this.expects) {
         ref = this.expects;
         results = [];
-
         for (k in ref) {
           v = ref[k];
           results.push(this[k] = this._check_expected_attribute(k, attrs[k]));
         }
-
         return results;
       } else {
         results1 = [];
-
         for (k in attrs) {
           v = attrs[k];
           results1.push(this[k] = v);
         }
-
         return results1;
       }
     }
@@ -170,25 +139,19 @@ var Component = /*#__PURE__*/function (_Base) {
     value: function _check_expected_attribute(attribute, value) {
       var check, component;
       boundMethodCheck(this, Component);
-
       if (!this.expects) {
         return;
       }
-
       check = this.expects[attribute];
-
       if (check.allow_nil) {
         return value;
       }
-
       component = this.constructor.name;
-
       if (typeof check === 'boolean' && value == null) {
         throw new ExpectedComponentAttributes('expected attribute to be present', attribute, component, this._scope);
       } else if (check.array && !_util.Util.is_array(value)) {
         throw new ExpectedComponentAttributes('expected attribute to be an array', attribute, component, this._scope);
       }
-
       return value;
     }
   }, {
@@ -200,8 +163,6 @@ var Component = /*#__PURE__*/function (_Base) {
       throw new RenderUndefined('expected render function to be defined', component, this._scope);
     }
   }]);
-
   return Component;
 }(_base.Base);
-
 exports.Component = Component;

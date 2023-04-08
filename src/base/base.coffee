@@ -1,10 +1,10 @@
-import uuid from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import { $register, $deregister } from './../events/events.js'
 
 export class Base
   # unique way of indentifying each components
   scope:->
-    uuid()
+    uuidv4()
   # register events and bind to instance methods
   # eg. @$on 'users/index', @success
   $on: (name,fun,opts={})=>
