@@ -1,6 +1,6 @@
 {
   "name": "dilithium-js",
-  "version": "1.7.6",
+  "version": "1.8.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -8,20 +8,20 @@
   },
   "main": "build/index.js",
   "engines": {
-    "node": ">=8.12.0"
+    "node": ">=18.15.0"
   },
   "scripts": {
     "build": "coffee index.coffee -o ./build"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "coffeescript": "^2.5.1",
-    "inflection": "^1.12.0",
-    "uuid": "^3.4.0"
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-env": "^7.21.4",
+    "coffeescript": "^2.7.0",
+    "inflection": "^2.0.1",
+    "uuid": "^7.0.3"
   },
   "dependencies": {
-    "mithril": "^2.0.0-rc.9"
+    "mithril": "^2.2.2"
   }
 }
