@@ -4,6 +4,89 @@ To boldy go where no javascript framework has gone before.
 A tiny, conventional and opionated javascript framework build ontop of
 [MithrilJs](https://mithril.js.org/) with developer productivity in mind.
 
+## How to Use
+
+[api](#api)
+[attribute](#attribute)
+[attribute_array](#attribute_rray)
+[attribute_model_array](#attribute_model_array)
+[base](#base)
+[collection](#collection)
+[component](#component)
+[events](#events)
+[field](#field)
+[field_checkbox](#field_checkbox)
+[field_err](#field_err)
+[field_file](#field_file)
+[field_input_password](#field_input_password)
+[field_input_text](#field_input_text)
+[field_radio](#field_radio)
+[field_select](#field_select)
+[field_textarea](#field_textarea)
+[form](#form)
+[list](#list)
+[location](#location)
+[member](#member)
+[model](#model)
+[popup](#popup)
+[show](#show)
+[util](#util)
+[view](#view)
+
+### api
+
+### attribute
+
+### attribute_array
+
+### attribute_model_array
+
+### base
+
+### collection
+
+### component
+
+### events
+
+### field
+
+### field_checkbox
+
+### field_err
+
+### field_file
+
+### field_input_password
+
+### field_input_text
+
+### field_radio
+
+### field_select
+
+### field_textarea
+
+### form
+
+### index.coffee
+
+### list
+
+### location
+
+### member
+
+### model
+
+### popup
+
+### show
+
+### util
+
+### view
+
 ## How to Build
 
 Install all the dependencies
