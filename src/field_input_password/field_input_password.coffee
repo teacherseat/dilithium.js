@@ -40,3 +40,4 @@ export class InputPassword extends Component
       if @label
         m 'label', @label
       m "input[type='password']", @attrs()
+      vnode.children

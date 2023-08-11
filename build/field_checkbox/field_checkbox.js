@@ -85,9 +85,9 @@ var Checkbox = function () {
       }
     }, {
       key: "render",
-      value: function render() {
+      value: function render(vnode) {
         boundMethodCheck(this, Checkbox);
-        return (0, _mithril.m)(".field.checkbox.".concat(this.handle), (0, _mithril.m)('label', this.label), (0, _mithril.m)("input[type='checkbox']", this.attrs()));
+        return (0, _mithril.m)(".field.checkbox.".concat(this.handle), (0, _mithril.m)('label', this.label), (0, _mithril.m)("input[type='checkbox']", this.attrs()), vnode.children);
       }
     }]);
     return Checkbox;

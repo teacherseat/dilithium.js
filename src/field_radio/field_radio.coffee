@@ -22,3 +22,4 @@ export class Radio extends Component
       m "input[type='radio']", @attrs()
       if @label
         m 'label', @label
+      vnode.children

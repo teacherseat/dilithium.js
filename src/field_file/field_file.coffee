@@ -48,5 +48,4 @@ export class FileField extends Component
       if @button_label
         m '.upload.button.bttn', onclick: @click(vnode), @button_label
       m "input[type='file']", @attrs()
-
-
+      vnode.children

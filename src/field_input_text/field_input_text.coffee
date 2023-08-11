@@ -35,8 +35,9 @@ export class InputText extends Component
       'err'
     else
       ''
-  render:=>
+  render:(vnode)=>
     m ".field.text_field.#{@handle}", class: @classes(),
       if @label
         m 'label', @label
       m "input[type='text']", @attrs()
+      vnode.children

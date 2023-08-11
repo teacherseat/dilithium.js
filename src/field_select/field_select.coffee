@@ -36,3 +36,4 @@ export class Select extends Component
             m 'option'
         for option in @options
           @option(option)
+      vnode.children

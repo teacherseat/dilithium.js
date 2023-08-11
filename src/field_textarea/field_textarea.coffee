@@ -35,3 +35,4 @@ export class Textarea extends Component
         if @label
           m 'label', @label
         m "textarea", @attrs(), @attribute.value()
+        vnode.children

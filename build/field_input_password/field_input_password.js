@@ -87,7 +87,7 @@ var InputPassword = function () {
         boundMethodCheck(this, InputPassword);
         return (0, _mithril.m)(".field.password_field.".concat(this.handle), {
           "class": this.classes()
-        }, this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("input[type='password']", this.attrs()));
+        }, this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("input[type='password']", this.attrs()), vnode.children);
       }
     }]);
     return InputPassword;

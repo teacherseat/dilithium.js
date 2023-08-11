@@ -33,7 +33,8 @@ export class Checkbox extends Component
         attrs.value   = @attribute.value()
         attrs.checked = true if @attribute.value()
     attrs
-  render:=>
+  render:(vnode)=>
     m ".field.checkbox.#{@handle}",
       m 'label', @label
       m "input[type='checkbox']", @attrs()
+      vnode.children

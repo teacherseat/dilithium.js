@@ -81,7 +81,7 @@ var Select = function () {
             results.push(this.option(option));
           }
           return results;
-        }.call(this)));
+        }.call(this)), vnode.children);
       }
     }]);
     return Select;

@@ -60,7 +60,7 @@ var Radio = function () {
       key: "view",
       value: function view(vnode) {
         boundMethodCheck(this, Radio);
-        return (0, _mithril.m)(".field.radio.".concat(this.handle), (0, _mithril.m)("input[type='radio']", this.attrs()), this.label ? (0, _mithril.m)('label', this.label) : void 0);
+        return (0, _mithril.m)(".field.radio.".concat(this.handle), (0, _mithril.m)("input[type='radio']", this.attrs()), this.label ? (0, _mithril.m)('label', this.label) : void 0, vnode.children);
       }
     }]);
     return Radio;

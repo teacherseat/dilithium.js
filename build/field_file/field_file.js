@@ -106,7 +106,7 @@ var FileField = function () {
           "class": this.classes()
         }, this.label ? (0, _mithril.m)('label', this.label) : void 0, this.button_label ? (0, _mithril.m)('.upload.button.bttn', {
           onclick: this.click(vnode)
-        }, this.button_label) : void 0, (0, _mithril.m)("input[type='file']", this.attrs()));
+        }, this.button_label) : void 0, (0, _mithril.m)("input[type='file']", this.attrs()), vnode.children);
       }
     }]);
     return FileField;
