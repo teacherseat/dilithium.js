@@ -9,6 +9,10 @@ export class Checkbox extends Component
     value: true
     value_unselected:
       allow_nil: true
+    disabled:
+      allow_nil: true
+    readonly:
+      allow_nil: true
   ev_onclick:(ev)=>
     switch @attribute._attribute_type
       when 'AttributeArray'
@@ -25,6 +29,8 @@ export class Checkbox extends Component
   attrs:=>
     attrs =
       onclick: @ev_onclick
+    attrs.disabled = true if @disabled
+    attrs.readonly = true if @readonly
     switch @attribute._attribute_type
       when 'AttributeArray'
         attrs.value   = @attribute.value().indexOf(@value) != -1

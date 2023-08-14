@@ -12,6 +12,10 @@ export class Select extends Component
       allow_nil: true
     include_blank:
       allow_nil: true
+    disabled:
+      allow_nil: true
+    readonly:
+      allow_nil: true
   ev_onchange:(ev)=>
     @attribute.value ev.target.value
     if @onchange
@@ -20,6 +24,8 @@ export class Select extends Component
     attrs =
       onchange: @ev_onchange
       value: @attribute.value()
+    attrs.disabled = true if @disabled
+    attrs.readonly = true if @readonly
     attrs
   option:(option)=>
     m 'option', value: option.id, option.name

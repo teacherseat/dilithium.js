@@ -13,6 +13,10 @@ export class Textarea extends Component
       allow_nil: true
     naked:
       allow_nil: true
+    disabled:
+      allow_nil: true
+    readonly:
+      allow_nil: true
   _onchange:(ev)=>
     @attribute.value ev.target.value
     if @onchange
@@ -20,6 +24,8 @@ export class Textarea extends Component
   attrs:=>
     attrs =
       onchange: @_onchange
+    attrs.disabled = true if @disabled
+    attrs.readonly = true if @readonly
     attrs.placeholder = @placeholder if @placeholder
     attrs
   classes:=>

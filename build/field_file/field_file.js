@@ -86,6 +86,12 @@ var FileField = function () {
         if (this.multi) {
           attrs.multiple = true;
         }
+        if (this.disabled) {
+          attrs.disabled = true;
+        }
+        if (this.readonly) {
+          attrs.readonly = true;
+        }
         return attrs;
       }
     }, {
@@ -125,6 +131,12 @@ var FileField = function () {
       allow_nil: true
     },
     onchange: {
+      allow_nil: true
+    },
+    disabled: {
+      allow_nil: true
+    },
+    readonly: {
       allow_nil: true
     }
   };

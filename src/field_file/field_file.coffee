@@ -13,6 +13,10 @@ export class FileField extends Component
       allow_nil: true
     onchange:
       allow_nil: true
+    disabled:
+      allow_nil: true
+    readonly:
+      allow_nil: true
   _onchange:(ev)=>
     filelist = ev.target.files
     files = null
@@ -35,6 +39,8 @@ export class FileField extends Component
     attrs =
       onchange: @_onchange
     attrs.multiple = true if @multi
+    attrs.disabled = true if @disabled
+    attrs.readonly = true if @readonly
     attrs
   classes:=>
     if @attribute.errors().length > 0

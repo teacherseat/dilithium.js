@@ -68,6 +68,12 @@ var Checkbox = function () {
         attrs = {
           onclick: this.ev_onclick
         };
+        if (this.disabled) {
+          attrs.disabled = true;
+        }
+        if (this.readonly) {
+          attrs.readonly = true;
+        }
         switch (this.attribute._attribute_type) {
           case 'AttributeArray':
             attrs.value = this.attribute.value().indexOf(this.value) !== -1;
@@ -99,6 +105,12 @@ var Checkbox = function () {
     label: true,
     value: true,
     value_unselected: {
+      allow_nil: true
+    },
+    disabled: {
+      allow_nil: true
+    },
+    readonly: {
       allow_nil: true
     }
   };

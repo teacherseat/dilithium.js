@@ -56,6 +56,12 @@ var Textarea = function () {
         attrs = {
           onchange: this._onchange
         };
+        if (this.disabled) {
+          attrs.disabled = true;
+        }
+        if (this.readonly) {
+          attrs.readonly = true;
+        }
         if (this.placeholder) {
           attrs.placeholder = this.placeholder;
         }
@@ -100,6 +106,12 @@ var Textarea = function () {
       allow_nil: true
     },
     naked: {
+      allow_nil: true
+    },
+    disabled: {
+      allow_nil: true
+    },
+    readonly: {
       allow_nil: true
     }
   };

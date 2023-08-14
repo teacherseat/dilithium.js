@@ -17,6 +17,10 @@ export class InputText extends Component
       allow_nil: true
     onchange:
       allow_nil: true
+    disabled:
+      allow_nil: true
+    readonly:
+      allow_nil: true
   _onchange:(ev)=>
     @attribute.value ev.target.value
     if @onchange
@@ -29,6 +33,8 @@ export class InputText extends Component
     attrs.inputmode = @inputmode if @inputmode
     attrs.pattern = @pattern if @pattern
     attrs.autocomplete = @autocomplete if @autocomplete
+    attrs.disabled = true if @disabled
+    attrs.readonly = true if @readonly
     attrs
   classes:=>
     if @attribute.errors().length > 0
