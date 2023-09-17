@@ -7,6 +7,12 @@ export class Textarea extends Component
     handle: true
     onchange:
       allow_nil: true
+    onkeyup:
+      allow_nil: true
+    onkeydown:
+      allow_nil: true
+    onkeypress:
+      allow_nil: true
     placeholder:
       allow_nil: true
     label:
@@ -17,13 +23,21 @@ export class Textarea extends Component
       allow_nil: true
     readonly:
       allow_nil: true
+  _onkeyup:(ev)=>
+    @onkeyup(ev) if @onkeyup
+  _onkeydown:(ev)=>
+    @onkeydown(ev) if @onkeydown
+  _onkeypress:(ev)=>
+    @onkeypress(ev) if @onkeypress
   _onchange:(ev)=>
     @attribute.value ev.target.value
-    if @onchange
-      @onchange()
+    @onchange(ev) if @onchange
   attrs:=>
     attrs =
       onchange: @_onchange
+      onkeyup: @_onkeyup
+      onkeypress: @_onkeypress
+      onkeydown: @_onkeydown
     attrs.disabled = true if @disabled
     attrs.readonly = true if @readonly
     attrs.placeholder = @placeholder if @placeholder

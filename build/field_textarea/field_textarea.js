@@ -33,6 +33,9 @@ var Textarea = function () {
       var _this;
       _classCallCheck(this, Textarea);
       _this = _super.apply(this, arguments);
+      _this._onkeyup = _this._onkeyup.bind(_assertThisInitialized(_this));
+      _this._onkeydown = _this._onkeydown.bind(_assertThisInitialized(_this));
+      _this._onkeypress = _this._onkeypress.bind(_assertThisInitialized(_this));
       _this._onchange = _this._onchange.bind(_assertThisInitialized(_this));
       _this.attrs = _this.attrs.bind(_assertThisInitialized(_this));
       _this.classes = _this.classes.bind(_assertThisInitialized(_this));
@@ -40,12 +43,36 @@ var Textarea = function () {
       return _this;
     }
     _createClass(Textarea, [{
+      key: "_onkeyup",
+      value: function _onkeyup(ev) {
+        boundMethodCheck(this, Textarea);
+        if (this.onkeyup) {
+          return this.onkeyup(ev);
+        }
+      }
+    }, {
+      key: "_onkeydown",
+      value: function _onkeydown(ev) {
+        boundMethodCheck(this, Textarea);
+        if (this.onkeydown) {
+          return this.onkeydown(ev);
+        }
+      }
+    }, {
+      key: "_onkeypress",
+      value: function _onkeypress(ev) {
+        boundMethodCheck(this, Textarea);
+        if (this.onkeypress) {
+          return this.onkeypress(ev);
+        }
+      }
+    }, {
       key: "_onchange",
       value: function _onchange(ev) {
         boundMethodCheck(this, Textarea);
         this.attribute.value(ev.target.value);
         if (this.onchange) {
-          return this.onchange();
+          return this.onchange(ev);
         }
       }
     }, {
@@ -54,7 +81,10 @@ var Textarea = function () {
         var attrs;
         boundMethodCheck(this, Textarea);
         attrs = {
-          onchange: this._onchange
+          onchange: this._onchange,
+          onkeyup: this._onkeyup,
+          onkeypress: this._onkeypress,
+          onkeydown: this._onkeydown
         };
         if (this.disabled) {
           attrs.disabled = true;
@@ -97,6 +127,15 @@ var Textarea = function () {
     attribute: true,
     handle: true,
     onchange: {
+      allow_nil: true
+    },
+    onkeyup: {
+      allow_nil: true
+    },
+    onkeydown: {
+      allow_nil: true
+    },
+    onkeypress: {
       allow_nil: true
     },
     placeholder: {
