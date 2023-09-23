@@ -68,9 +68,6 @@ var Model = /*#__PURE__*/function () {
             case 'AttributeArray':
               attrs[key] = this[k].values();
               break;
-            case 'AttributeJson':
-              attrs[key] = this[k].value();
-              break;
             case 'Attribute':
               attrs[key] = this[k].value();
           }

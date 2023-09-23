@@ -54,9 +54,9 @@ var Checkbox = function () {
             break;
           case 'Attribute':
             if (this.attribute.value()) {
-              return this.attribute.value(this.value_unselected);
-            } else {
               return this.attribute.value(this.value);
+            } else {
+              return this.attribute.value(this.value_unselected);
             }
         }
       }
