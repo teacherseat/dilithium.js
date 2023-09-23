@@ -23,9 +23,9 @@ export class Checkbox extends Component
           @attribute.value().splice(index,1)
       when 'Attribute'
         if @attribute.value()
-          @attribute.value @value
-        else
           @attribute.value @value_unselected
+        else
+          @attribute.value @value
   attrs:=>
     attrs =
       onclick: @ev_onclick
