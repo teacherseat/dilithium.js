@@ -81,7 +81,8 @@ var Textarea = function () {
         var attrs;
         boundMethodCheck(this, Textarea);
         attrs = {
-          onchange: this._onchange,
+          // we changed this to oninput.
+          oninput: this._onchange,
           onkeyup: this._onkeyup,
           onkeypress: this._onkeypress,
           onkeydown: this._onkeydown

@@ -34,7 +34,8 @@ export class Textarea extends Component
     @onchange(ev) if @onchange
   attrs:=>
     attrs =
-      onchange: @_onchange
+      # we changed this to oninput.
+      oninput: @_onchange
       onkeyup: @_onkeyup
       onkeypress: @_onkeypress
       onkeydown: @_onkeydown
