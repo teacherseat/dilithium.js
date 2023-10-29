@@ -39,6 +39,7 @@ export class Textarea extends Component
       onkeyup: @_onkeyup
       onkeypress: @_onkeypress
       onkeydown: @_onkeydown
+      value: @attribute.value()
     attrs.disabled = true if @disabled
     attrs.readonly = true if @readonly
     attrs.placeholder = @placeholder if @placeholder
@@ -55,5 +56,5 @@ export class Textarea extends Component
       m ".field.textarea.#{@handle}", class: @classes(),
         if @label
           m 'label', @label
-        m "textarea", @attrs(), @attribute.value()
+        m "textarea", @attrs()
         vnode.children

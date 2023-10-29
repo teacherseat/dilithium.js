@@ -85,7 +85,8 @@ var Textarea = function () {
           oninput: this._onchange,
           onkeyup: this._onkeyup,
           onkeypress: this._onkeypress,
-          onkeydown: this._onkeydown
+          onkeydown: this._onkeydown,
+          value: this.attribute.value()
         };
         if (this.disabled) {
           attrs.disabled = true;
@@ -117,7 +118,7 @@ var Textarea = function () {
         } else {
           return (0, _mithril.m)(".field.textarea.".concat(this.handle), {
             "class": this.classes()
-          }, this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("textarea", this.attrs(), this.attribute.value()), vnode.children);
+          }, this.label ? (0, _mithril.m)('label', this.label) : void 0, (0, _mithril.m)("textarea", this.attrs()), vnode.children);
         }
       }
     }]);
