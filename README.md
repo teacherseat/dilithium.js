@@ -159,7 +159,7 @@ The compiled code will output to the `build` directory
 npm 3.0 supprts installing local packages with the following command:
 
 ```
-npm i --save /path/to/dilithium.js
+npm i --save /Users/andrewbrown/Sites/dilithium.js
 ```
 
 you'll see something like this in your package.json
@@ -170,3 +170,25 @@ you'll see something like this in your package.json
 }
 ```
 
+
+## Pathing issues
+
+
+In local development it can be hard for nodejs to find mithril
+and you have to temporarily fix the paths.
+
+So change this:
+
+```
+import { m } from 'mithril'
+import * as m from 'mithril'
+import stream from 'mithril/stream'
+```
+
+to this:
+
+```coffee
+import { m } from './../../node_modules/mithril/mithril.js'
+import * as m from './../../node_modules/mithril/mithril.js'
+import stream from './../../node_modules/mithril/stream/stream.js'
+```
