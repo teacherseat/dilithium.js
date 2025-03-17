@@ -31,7 +31,7 @@ export class Textarea extends Component
     @onkeypress(ev) if @onkeypress
   _oninput:(ev)=>
     @attribute.value ev.target.value
-    @onchange(ev) if @onchange
+    @oninput(ev) if @oninput
   _onchange:(ev)=>
     @attribute.value ev.target.value
     @onchange(ev) if @onchange

@@ -72,8 +72,8 @@ var InputText = function () {
       value: function _oninput(ev) {
         boundMethodCheck(this, InputText);
         this.attribute.value(ev.target.value);
-        if (this.onchange) {
-          return this.onchange(ev);
+        if (this.oninput) {
+          return this.oninput(ev);
         }
       }
     }, {

@@ -72,8 +72,8 @@ var Textarea = function () {
       value: function _oninput(ev) {
         boundMethodCheck(this, Textarea);
         this.attribute.value(ev.target.value);
-        if (this.onchange) {
-          return this.onchange(ev);
+        if (this.oninput) {
+          return this.oninput(ev);
         }
       }
     }, {
