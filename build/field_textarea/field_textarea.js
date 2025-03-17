@@ -36,6 +36,7 @@ var Textarea = function () {
       _this._onkeyup = _this._onkeyup.bind(_assertThisInitialized(_this));
       _this._onkeydown = _this._onkeydown.bind(_assertThisInitialized(_this));
       _this._onkeypress = _this._onkeypress.bind(_assertThisInitialized(_this));
+      _this._oninput = _this._oninput.bind(_assertThisInitialized(_this));
       _this._onchange = _this._onchange.bind(_assertThisInitialized(_this));
       _this.attrs = _this.attrs.bind(_assertThisInitialized(_this));
       _this.classes = _this.classes.bind(_assertThisInitialized(_this));
@@ -67,6 +68,15 @@ var Textarea = function () {
         }
       }
     }, {
+      key: "_oninput",
+      value: function _oninput(ev) {
+        boundMethodCheck(this, Textarea);
+        this.attribute.value(ev.target.value);
+        if (this.onchange) {
+          return this.onchange(ev);
+        }
+      }
+    }, {
       key: "_onchange",
       value: function _onchange(ev) {
         boundMethodCheck(this, Textarea);
@@ -81,8 +91,8 @@ var Textarea = function () {
         var attrs;
         boundMethodCheck(this, Textarea);
         attrs = {
-          // we changed this to oninput.
-          oninput: this._onchange,
+          onchange: this._onchange,
+          oninput: this._oninput,
           onkeyup: this._onkeyup,
           onkeypress: this._onkeypress,
           onkeydown: this._onkeydown,

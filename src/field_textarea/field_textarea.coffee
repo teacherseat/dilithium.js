@@ -29,13 +29,16 @@ export class Textarea extends Component
     @onkeydown(ev) if @onkeydown
   _onkeypress:(ev)=>
     @onkeypress(ev) if @onkeypress
+  _oninput:(ev)=>
+    @attribute.value ev.target.value
+    @onchange(ev) if @onchange
   _onchange:(ev)=>
     @attribute.value ev.target.value
     @onchange(ev) if @onchange
   attrs:=>
     attrs =
-      # we changed this to oninput.
-      oninput: @_onchange
+      onchange: @_onchange
+      oninput: @_oninput
       onkeyup: @_onkeyup
       onkeypress: @_onkeypress
       onkeydown: @_onkeydown
