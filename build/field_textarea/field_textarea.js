@@ -138,6 +138,12 @@ var Textarea = function () {
   Textarea.prototype.expects = {
     attribute: true,
     handle: true,
+    label: {
+      allow_nil: true
+    },
+    oninput: {
+      allow_nil: true
+    },
     onchange: {
       allow_nil: true
     },
@@ -151,9 +157,6 @@ var Textarea = function () {
       allow_nil: true
     },
     placeholder: {
-      allow_nil: true
-    },
-    label: {
       allow_nil: true
     },
     naked: {

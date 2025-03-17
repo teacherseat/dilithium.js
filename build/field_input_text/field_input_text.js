@@ -146,16 +146,7 @@ var InputText = function () {
     label: {
       allow_nil: true
     },
-    placeholder: {
-      allow_nil: true
-    },
-    inputmode: {
-      allow_nil: true
-    },
-    pattern: {
-      allow_nil: true
-    },
-    autocomplete: {
+    oninput: {
       allow_nil: true
     },
     onchange: {
@@ -168,6 +159,18 @@ var InputText = function () {
       allow_nil: true
     },
     onkeypress: {
+      allow_nil: true
+    },
+    placeholder: {
+      allow_nil: true
+    },
+    inputmode: {
+      allow_nil: true
+    },
+    pattern: {
+      allow_nil: true
+    },
+    autocomplete: {
       allow_nil: true
     },
     disabled: {

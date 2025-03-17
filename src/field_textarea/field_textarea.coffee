@@ -5,6 +5,10 @@ export class Textarea extends Component
   expects:
     attribute: true
     handle: true
+    label:
+      allow_nil: true
+    oninput:
+      allow_nil: true
     onchange:
       allow_nil: true
     onkeyup:
@@ -14,8 +18,6 @@ export class Textarea extends Component
     onkeypress:
       allow_nil: true
     placeholder:
-      allow_nil: true
-    label:
       allow_nil: true
     naked:
       allow_nil: true
