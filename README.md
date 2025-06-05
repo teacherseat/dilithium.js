@@ -6,14 +6,19 @@ A tiny, conventional and opionated javascript framework build ontop of
 
 ## How to Use
 
+## Core
+- [base](#base)
+- [component](#component)
+- [events](#events)
+
+## Data
 - [api](#api)
+- [model](#model)
 - [attribute](#attribute)
 - [attribute_array](#attribute_rray)
 - [attribute_model_array](#attribute_model_array)
-- [base](#base)
-- [collection](#collection)
-- [component](#component)
-- [events](#events)
+
+## Fields
 - [field](#field)
 - [field_checkbox](#field_checkbox)
 - [field_err](#field_err)
@@ -23,21 +28,20 @@ A tiny, conventional and opionated javascript framework build ontop of
 - [field_radio](#field_radio)
 - [field_select](#field_select)
 - [field_textarea](#field_textarea)
+
+## Views
+- [view](#view)
 - [form](#form)
 - [list](#list)
-- [location](#location)
-- [member](#member)
-- [model](#model)
-- [popup](#popup)
 - [show](#show)
+- [collection](#collection)
+- [member](#member)
+- [popup](#popup)
+
+## Utils
+- [location](#location)
 - [util](#util)
-- [view](#view)
 
-### api
-
-### attribute
-
-### attribute_array
 
 ### attribute_model_array
 
@@ -83,51 +87,6 @@ export class ResourceTag extends Model
 
 ```
 
-### base
-
-### collection
-
-### component
-
-### events
-
-### field
-
-### field_checkbox
-
-### field_err
-
-### field_file
-
-### field_input_password
-
-### field_input_text
-
-### field_radio
-
-### field_select
-
-### field_textarea
-
-### form
-
-### index.coffee
-
-### list
-
-### location
-
-### member
-
-### model
-
-### popup
-
-### show
-
-### util
-
-### view
 
 ## How to Build
 
