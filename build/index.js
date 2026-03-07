@@ -1,226 +1,93 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "$broadcast", {
-  enumerable: true,
-  get: function get() {
-    return _events.$broadcast;
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var index_exports = {};
+__export(index_exports, {
+  $broadcast: () => import_events.$broadcast,
+  $location: () => import_location.$location,
+  $register: () => import_events.$register,
+  ApiBase: () => import_api.ApiBase,
+  Attribute: () => import_attribute.Attribute,
+  AttributeArray: () => import_attribute_array.AttributeArray,
+  AttributeModelArray: () => import_attribute_model_array.AttributeModelArray,
+  Checkbox: () => import_field_checkbox.Checkbox,
+  CollectionView: () => import_collection.CollectionView,
+  Component: () => import_component.Component,
+  ErrorMsg: () => import_field_err.ErrorMsg,
+  FileField: () => import_field_file.FileField,
+  Form: () => import_form.Form,
+  InputPassword: () => import_field_input_password.InputPassword,
+  InputText: () => import_field_input_text.InputText,
+  Link: () => Link,
+  ListView: () => import_list.ListView,
+  MemberView: () => import_member.MemberView,
+  Model: () => import_model.Model,
+  Popup: () => import_popup.Popup,
+  Radio: () => import_field_radio.Radio,
+  Select: () => import_field_select.Select,
+  ShowView: () => import_show.ShowView,
+  Textarea: () => import_field_textarea.Textarea,
+  Util: () => import_util.Util,
+  View: () => import_view.View,
+  m: () => import_mithril.m,
+  mount: () => import_mithril.mount,
+  param: () => param,
+  redraw: () => import_mithril.redraw,
+  route: () => import_mithril.route,
+  stream: () => import_stream.default,
+  trust: () => import_mithril.trust
 });
-Object.defineProperty(exports, "$location", {
-  enumerable: true,
-  get: function get() {
-    return _location.$location;
-  }
-});
-Object.defineProperty(exports, "$register", {
-  enumerable: true,
-  get: function get() {
-    return _events.$register;
-  }
-});
-Object.defineProperty(exports, "ApiBase", {
-  enumerable: true,
-  get: function get() {
-    return _api.ApiBase;
-  }
-});
-Object.defineProperty(exports, "Attribute", {
-  enumerable: true,
-  get: function get() {
-    return _attribute.Attribute;
-  }
-});
-Object.defineProperty(exports, "AttributeArray", {
-  enumerable: true,
-  get: function get() {
-    return _attribute_array.AttributeArray;
-  }
-});
-Object.defineProperty(exports, "AttributeModelArray", {
-  enumerable: true,
-  get: function get() {
-    return _attribute_model_array.AttributeModelArray;
-  }
-});
-Object.defineProperty(exports, "Checkbox", {
-  enumerable: true,
-  get: function get() {
-    return _field_checkbox.Checkbox;
-  }
-});
-Object.defineProperty(exports, "CollectionView", {
-  enumerable: true,
-  get: function get() {
-    return _collection.CollectionView;
-  }
-});
-Object.defineProperty(exports, "Component", {
-  enumerable: true,
-  get: function get() {
-    return _component.Component;
-  }
-});
-Object.defineProperty(exports, "ErrorMsg", {
-  enumerable: true,
-  get: function get() {
-    return _field_err.ErrorMsg;
-  }
-});
-Object.defineProperty(exports, "FileField", {
-  enumerable: true,
-  get: function get() {
-    return _field_file.FileField;
-  }
-});
-Object.defineProperty(exports, "Form", {
-  enumerable: true,
-  get: function get() {
-    return _form.Form;
-  }
-});
-Object.defineProperty(exports, "InputPassword", {
-  enumerable: true,
-  get: function get() {
-    return _field_input_password.InputPassword;
-  }
-});
-Object.defineProperty(exports, "InputText", {
-  enumerable: true,
-  get: function get() {
-    return _field_input_text.InputText;
-  }
-});
-exports.Link = void 0;
-Object.defineProperty(exports, "ListView", {
-  enumerable: true,
-  get: function get() {
-    return _list.ListView;
-  }
-});
-Object.defineProperty(exports, "MemberView", {
-  enumerable: true,
-  get: function get() {
-    return _member.MemberView;
-  }
-});
-Object.defineProperty(exports, "Model", {
-  enumerable: true,
-  get: function get() {
-    return _model.Model;
-  }
-});
-Object.defineProperty(exports, "Popup", {
-  enumerable: true,
-  get: function get() {
-    return _popup.Popup;
-  }
-});
-Object.defineProperty(exports, "Radio", {
-  enumerable: true,
-  get: function get() {
-    return _field_radio.Radio;
-  }
-});
-Object.defineProperty(exports, "Select", {
-  enumerable: true,
-  get: function get() {
-    return _field_select.Select;
-  }
-});
-Object.defineProperty(exports, "ShowView", {
-  enumerable: true,
-  get: function get() {
-    return _show.ShowView;
-  }
-});
-Object.defineProperty(exports, "Textarea", {
-  enumerable: true,
-  get: function get() {
-    return _field_textarea.Textarea;
-  }
-});
-Object.defineProperty(exports, "Util", {
-  enumerable: true,
-  get: function get() {
-    return _util.Util;
-  }
-});
-Object.defineProperty(exports, "View", {
-  enumerable: true,
-  get: function get() {
-    return _view.View;
-  }
-});
-Object.defineProperty(exports, "m", {
-  enumerable: true,
-  get: function get() {
-    return _mithril.m;
-  }
-});
-Object.defineProperty(exports, "mount", {
-  enumerable: true,
-  get: function get() {
-    return _mithril.mount;
-  }
-});
-exports.param = void 0;
-Object.defineProperty(exports, "redraw", {
-  enumerable: true,
-  get: function get() {
-    return _mithril.redraw;
-  }
-});
-Object.defineProperty(exports, "route", {
-  enumerable: true,
-  get: function get() {
-    return _mithril.route;
-  }
-});
-Object.defineProperty(exports, "stream", {
-  enumerable: true,
-  get: function get() {
-    return _stream["default"];
-  }
-});
-Object.defineProperty(exports, "trust", {
-  enumerable: true,
-  get: function get() {
-    return _mithril.trust;
-  }
-});
-var _mithril = require("mithril");
-var _stream = _interopRequireDefault(require("mithril/stream"));
-var _events = require("./events/events");
-var _api = require("./api/api");
-var _component = require("./component/component");
-var _view = require("./view/view");
-var _util = require("./util/util");
-var _model = require("./model/model");
-var _attribute = require("./attribute/attribute");
-var _attribute_array = require("./attribute_array/attribute_array");
-var _attribute_model_array = require("./attribute_model_array/attribute_model_array");
-var _location = require("./location/location");
-var _popup = require("./popup/popup");
-var _form = require("./form/form");
-var _field_checkbox = require("./field_checkbox/field_checkbox");
-var _field_err = require("./field_err/field_err");
-var _field_file = require("./field_file/field_file");
-var _field_input_password = require("./field_input_password/field_input_password");
-var _field_input_text = require("./field_input_text/field_input_text");
-var _field_radio = require("./field_radio/field_radio");
-var _field_textarea = require("./field_textarea/field_textarea");
-var _field_select = require("./field_select/field_select");
-var _list = require("./list/list");
-var _show = require("./show/show");
-var _member = require("./member/member");
-var _collection = require("./collection/collection");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-// Generated by CoffeeScript 2.7.0
+module.exports = __toCommonJS(index_exports);
+var import_mithril = require("mithril");
+var import_stream = __toESM(require("mithril/stream"));
+var import_events = require("./events/events");
+var import_api = require("./api/api");
+var import_component = require("./component/component");
+var import_view = require("./view/view");
+var import_util = require("./util/util");
+var import_model = require("./model/model");
+var import_attribute = require("./attribute/attribute");
+var import_attribute_array = require("./attribute_array/attribute_array");
+var import_attribute_model_array = require("./attribute_model_array/attribute_model_array");
+var import_location = require("./location/location");
+var import_popup = require("./popup/popup");
+var import_form = require("./form/form");
+var import_field_checkbox = require("./field_checkbox/field_checkbox");
+var import_field_err = require("./field_err/field_err");
+var import_field_file = require("./field_file/field_file");
+var import_field_input_password = require("./field_input_password/field_input_password");
+var import_field_input_text = require("./field_input_text/field_input_text");
+var import_field_radio = require("./field_radio/field_radio");
+var import_field_textarea = require("./field_textarea/field_textarea");
+var import_field_select = require("./field_select/field_select");
+var import_list = require("./list/list");
+var import_show = require("./show/show");
+var import_member = require("./member/member");
+var import_collection = require("./collection/collection");
 var Link, param;
-exports.param = param;
-exports.Link = Link;
-exports.param = param = _mithril.route.param;
-exports.Link = Link = _mithril.route.Link;
+param = import_mithril.route.param;
+Link = import_mithril.route.Link;

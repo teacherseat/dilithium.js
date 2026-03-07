@@ -11,13 +11,12 @@
     "node": ">=18.15.0"
   },
   "scripts": {
-    "build": "coffee index.coffee -o ./build"
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
-    "@babel/preset-env": "^7.21.4",
     "coffeescript": "^2.7.0",
+    "esbuild": "^0.25.0",
     "inflection": "^2.0.1",
     "uuid": "^7.0.3"
   },

@@ -51,17 +51,14 @@ Install all the dependencies
 npm i
 ```
 
-We use a Cakfile. This is similar to a Rubyfile but its for coffescript.
-In order to use the cake command you'll to need globally install
-coffescript
-
-```sh
-npm i --global coffeescript
-```
-
 To compile the code:
+```sh
+npm run build
 ```
-cake compile
+
+To watch for changes and recompile automatically:
+```sh
+npm run watch
 ```
 
 The compiled code will output to the `build` directory

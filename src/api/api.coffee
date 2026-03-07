@@ -16,24 +16,24 @@ if typeof File is 'undefined'
 # https://stackoverflow.com/questions/25677681/javascript-file-is-instance-of-file-but-instanceof-file-is-false
 has_attached_file = (value)->
   result = false
-  if typeof value is 'object' && !(value instanceof Blob)
+  if Array.isArray(value)
+    for vv in value
+      result |= has_attached_file vv
+  else if typeof value is 'object' && !(value instanceof Blob)
     for own k,v of value
       result |= has_attached_file v
-  else if typeof value is 'array'
-    for vv in v
-      result |= has_attached_file vv
   else
     result |= value instanceof Blob
   return result
 
 form_object_to_form_data = (value,fd=null,root=[]) ->
   fd = new FormData() unless fd
-  if typeof value is 'object' && !(value instanceof Blob)
-    for own k,v of value
-      form_object_to_form_data v, fd, root.concat [k]
-  else if typeof value is 'array'
+  if Array.isArray(value)
     for i,vv in value
       form_object_to_form_data vv, fd, root.concat [i]
+  else if typeof value is 'object' && !(value instanceof Blob)
+    for own k,v of value
+      form_object_to_form_data v, fd, root.concat [k]
   else
     fd.append parameter_name(root), value
   fd

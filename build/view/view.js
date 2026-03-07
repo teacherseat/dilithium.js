@@ -1,123 +1,94 @@
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var view_exports = {};
+__export(view_exports, {
+  View: () => View
 });
-exports.View = void 0;
-var _inflection = require("inflection");
-var _mithril = require("mithril");
-var _base = require("./../base/base.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-// Generated by CoffeeScript 2.7.0
-var boundMethodCheck = function boundMethodCheck(instance, Constructor) {
+module.exports = __toCommonJS(view_exports);
+var import_inflection = require("inflection");
+var import_mithril = require("mithril");
+var import_base = require("./../base/base.js");
+var boundMethodCheck = function(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new Error('Bound instance method accessed before binding');
+    throw new Error("Bound instance method accessed before binding");
   }
 };
-var View = /*#__PURE__*/function (_Base) {
-  _inherits(View, _Base);
-  var _super = _createSuper(View);
-  function View(args) {
-    var _this;
-    _classCallCheck(this, View);
-    _this = _super.call(this, args);
-    //# reindex is where you would normally make
-    //# your api call. If reindex is not overwritten
-    //# then it will immediately return sucess telling
-    // the page to load.
-    _this.reindex = _this.reindex.bind(_assertThisInitialized(_this));
-    // success is where you would assign the return data
-    // if you had made an api call
-    _this.onremove = _this.onremove.bind(_assertThisInitialized(_this));
-    _this.err = _this.err.bind(_assertThisInitialized(_this));
-    _this.success = _this.success.bind(_assertThisInitialized(_this));
-    return _this;
+var View = class View2 extends import_base.Base {
+  constructor(args) {
+    super(args);
+    this.reindex = this.reindex.bind(this);
+    this.onremove = this.onremove.bind(this);
+    this.err = this.err.bind(this);
+    this.success = this.success.bind(this);
   }
-  _createClass(View, [{
-    key: "oninit",
-    value: function oninit(vnode) {
-      var body_location, body_view;
-      _get(_getPrototypeOf(View.prototype), "oninit", this).call(this, vnode);
-      this.reindex();
-      if (this.body && this.body.location) {
-        body_location = this.body.location;
-      }
-      body_location || (body_location = (0, _inflection.underscore)(this.constructor.name));
-      if (this.body && this.body.view) {
-        body_view = this.body.view;
-      }
-      if (body_location) {
-        document.body.setAttribute('location', body_location);
-      }
-      if (body_view) {
-        document.body.setAttribute('view', body_view);
-      }
-      return true;
+  oninit(vnode) {
+    var body_location, body_view;
+    super.oninit(vnode);
+    this.reindex();
+    if (this.body && this.body.location) {
+      body_location = this.body.location;
     }
-  }, {
-    key: "reindex",
-    value: function reindex() {
-      boundMethodCheck(this, View);
-      this.loading = true;
-      return this.success();
+    body_location || (body_location = (0, import_inflection.underscore)(this.constructor.name));
+    if (this.body && this.body.view) {
+      body_view = this.body.view;
     }
-  }, {
-    key: "onremove",
-    value: function onremove(vnode) {
-      boundMethodCheck(this, View);
-      document.body.removeAttribute('location');
-      return document.body.removeAttribute('view');
+    if (body_location) {
+      document.body.setAttribute("location", body_location);
     }
-  }, {
-    key: "err",
-    value: function err(_err) {
-      boundMethodCheck(this, View);
-      if (_err.code === 403) {
-        // 403 is access denied
-        if (_err.response && _err.response.redirect_to) {
-          return window.location.href = _err.response.redirect_to;
-        } else {
-          return window.location.href = '/';
-        }
-        // 404 is page not found, send them to home page
-      } else if (_err.code === 404) {
-        return window.location.href = '/';
-      }
+    if (body_view) {
+      document.body.setAttribute("view", body_view);
     }
-  }, {
-    key: "success",
-    value: function success() {
-      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      boundMethodCheck(this, View);
-      this.model = data;
-      return this.loading = false;
-    }
-  }, {
-    key: "view",
-    value: function view(vnode) {
-      if (this.page_error && this.page_error.template) {
-        return this.page_error.template(vnode);
-      } else if (this.loading) {
-        return (0, _mithril.m)('.loading');
+    return true;
+  }
+  reindex() {
+    boundMethodCheck(this, View2);
+    this.loading = true;
+    return this.success();
+  }
+  onremove(vnode) {
+    boundMethodCheck(this, View2);
+    document.body.removeAttribute("location");
+    return document.body.removeAttribute("view");
+  }
+  err(err) {
+    boundMethodCheck(this, View2);
+    if (err.code === 403) {
+      if (err.response && err.response.redirect_to) {
+        return window.location.href = err.response.redirect_to;
       } else {
-        return this.render(vnode);
+        return window.location.href = "/";
       }
+    } else if (err.code === 404) {
+      return window.location.href = "/";
     }
-  }]);
-  return View;
-}(_base.Base);
-exports.View = View;
+  }
+  success(data = {}) {
+    boundMethodCheck(this, View2);
+    this.model = data;
+    return this.loading = false;
+  }
+  view(vnode) {
+    if (this.page_error && this.page_error.template) {
+      return this.page_error.template(vnode);
+    } else if (this.loading) {
+      return (0, import_mithril.m)(".loading");
+    } else {
+      return this.render(vnode);
+    }
+  }
+};

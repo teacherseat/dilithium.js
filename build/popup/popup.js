@@ -1,114 +1,99 @@
-"use strict";
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var popup_exports = {};
+__export(popup_exports, {
+  Popup: () => Popup
 });
-exports.Popup = void 0;
-var _mithril = require("mithril");
-var _stream = _interopRequireDefault(require("mithril/stream"));
-var _component = require("./../component/component");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-// Generated by CoffeeScript 2.7.0
-var boundMethodCheck = function boundMethodCheck(instance, Constructor) {
+module.exports = __toCommonJS(popup_exports);
+var import_mithril = require("mithril");
+var import_stream = __toESM(require("mithril/stream"));
+var import_component = require("./../component/component");
+var boundMethodCheck = function(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new Error('Bound instance method accessed before binding');
+    throw new Error("Bound instance method accessed before binding");
   }
 };
-var Popup = /*#__PURE__*/function (_Component) {
-  _inherits(Popup, _Component);
-  var _super = _createSuper(Popup);
-  function Popup(args) {
-    var _this;
-    _classCallCheck(this, Popup);
-    _this = _super.call(this, args);
-    _this.oninit = _this.oninit.bind(_assertThisInitialized(_this));
-    _this.onremove = _this.onremove.bind(_assertThisInitialized(_this));
-    _this.pop = _this.pop.bind(_assertThisInitialized(_this));
-    _this.reindex = _this.reindex.bind(_assertThisInitialized(_this));
-    _this.heading = _this.heading.bind(_assertThisInitialized(_this));
-    _this.close = _this.close.bind(_assertThisInitialized(_this));
-    _this.classes = _this.classes.bind(_assertThisInitialized(_this));
-    _this.view = _this.view.bind(_assertThisInitialized(_this));
-    _this.popped = (0, _stream["default"])(false);
-    return _this;
+var Popup = class Popup2 extends import_component.Component {
+  constructor(args) {
+    super(args);
+    this.oninit = this.oninit.bind(this);
+    this.onremove = this.onremove.bind(this);
+    this.pop = this.pop.bind(this);
+    this.reindex = this.reindex.bind(this);
+    this.heading = this.heading.bind(this);
+    this.close = this.close.bind(this);
+    this.classes = this.classes.bind(this);
+    this.view = this.view.bind(this);
+    this.popped = (0, import_stream.default)(false);
   }
-  _createClass(Popup, [{
-    key: "oninit",
-    value: function oninit(vnode) {
-      boundMethodCheck(this, Popup);
-      _get(_getPrototypeOf(Popup.prototype), "oninit", this).call(this, vnode);
-      return this.$on("".concat(this.handle, "#pop"), this.pop);
+  oninit(vnode) {
+    boundMethodCheck(this, Popup2);
+    super.oninit(vnode);
+    return this.$on(`${this.handle}#pop`, this.pop);
+  }
+  onremove(vnode) {
+    boundMethodCheck(this, Popup2);
+    super.onremove(vnode);
+    return this.$off(`${this.handle}#pop`, this.pop);
+  }
+  pop(data) {
+    boundMethodCheck(this, Popup2);
+    this.popped(true);
+    return this.reindex(data);
+  }
+  reindex(data) {
+    boundMethodCheck(this, Popup2);
+  }
+  heading() {
+    boundMethodCheck(this, Popup2);
+  }
+  close() {
+    boundMethodCheck(this, Popup2);
+    return this.popped(false);
+  }
+  classes() {
+    var classes;
+    boundMethodCheck(this, Popup2);
+    classes = [];
+    if (this.popped()) {
+      classes.push("pop");
     }
-  }, {
-    key: "onremove",
-    value: function onremove(vnode) {
-      boundMethodCheck(this, Popup);
-      _get(_getPrototypeOf(Popup.prototype), "onremove", this).call(this, vnode);
-      return this.$off("".concat(this.handle, "#pop"), this.pop);
+    return classes.join(" ");
+  }
+  view(vnode) {
+    boundMethodCheck(this, Popup2);
+    if (!this.popped()) {
+      return;
     }
-  }, {
-    key: "pop",
-    value: function pop(data) {
-      boundMethodCheck(this, Popup);
-      this.popped(true);
-      return this.reindex(data);
-    }
-  }, {
-    key: "reindex",
-    value: function reindex(data) {
-      boundMethodCheck(this, Popup);
-    }
-  }, {
-    key: "heading",
-    value: function heading() {
-      boundMethodCheck(this, Popup);
-    }
-  }, {
-    key: "close",
-    value: function close() {
-      boundMethodCheck(this, Popup);
-      return this.popped(false);
-    }
-  }, {
-    key: "classes",
-    value: function classes() {
-      var classes;
-      boundMethodCheck(this, Popup);
-      classes = [];
-      if (this.popped()) {
-        classes.push('pop');
-      }
-      return classes.join(' ');
-    }
-  }, {
-    key: "view",
-    value: function view(vnode) {
-      boundMethodCheck(this, Popup);
-      if (!this.popped()) {
-        return;
-      }
-      return (0, _mithril.m)(".popup_wrap.".concat(this.handle), {
-        "class": this.classes()
-      }, (0, _mithril.m)('.popup', (0, _mithril.m)('.popup_heading', (0, _mithril.m)('.title', this.heading()), (0, _mithril.m)('.bttn.close.fa.fa-times', {
-        onclick: this.close
-      })), (0, _mithril.m)('.popup_content', this.render())));
-    }
-  }]);
-  return Popup;
-}(_component.Component);
-exports.Popup = Popup;
+    return (0, import_mithril.m)(`.popup_wrap.${this.handle}`, {
+      class: this.classes()
+    }, (0, import_mithril.m)(".popup", (0, import_mithril.m)(".popup_heading", (0, import_mithril.m)(".title", this.heading()), (0, import_mithril.m)(".bttn.close.fa.fa-times", {
+      onclick: this.close
+    })), (0, import_mithril.m)(".popup_content", this.render())));
+  }
+};
