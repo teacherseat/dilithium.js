@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: bin/link [--dry-run]
+
+Symlink each folder in this repository's skills/ directory into the global
+Codex and Claude skills directories.
+
+Environment overrides:
+  SKILLS_DIR          Source skills directory. Defaults to ../skills.
+  SKILL_PREFIX        Prefix for linked skill names. Defaults to di-.
+  CODEX_SKILLS_DIR   Codex global skills directory.
+                     Defaults to $CODEX_HOME/skills or ~/.codex/skills.
+  CLAUDE_SKILLS_DIR  Claude global skills directory.
+                     Defaults to $CLAUDE_HOME/skills or ~/.claude/skills.
+USAGE
+}
+
+dry_run=0
+for arg in "$@"; do
+  case "$arg" in
+    -n|--dry-run)
+      dry_run=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $arg" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_dir="$(cd "$script_dir/.." && pwd)"
+
+skills_dir="${SKILLS_DIR:-$repo_dir/skills}"
+skill_prefix="${SKILL_PREFIX:-di-}"
+codex_skills_dir="${CODEX_SKILLS_DIR:-${CODEX_HOME:-$HOME/.codex}/skills}"
+claude_skills_dir="${CLAUDE_SKILLS_DIR:-${CLAUDE_HOME:-$HOME/.claude}/skills}"
+
+if [[ ! -d "$skills_dir" ]]; then
+  echo "Skills directory does not exist: $skills_dir" >&2
+  exit 1
+fi
+
+run() {
+  if [[ "$dry_run" -eq 1 ]]; then
+    printf '+'
+    printf ' %q' "$@"
+    printf '\n'
+  else
+    "$@"
+  fi
+}
+
+link_skill() {
+  local source_dir="$1"
+  local target_root="$2"
+  local skill_name
+  local target_path
+  local existing_target
+
+  skill_name="$(basename "$source_dir")"
+  target_path="$target_root/$skill_prefix$skill_name"
+
+  if [[ -L "$target_path" ]]; then
+    existing_target="$(readlink "$target_path")"
+    if [[ "$existing_target" == "$source_dir" ]]; then
+      echo "Already linked: $target_path -> $source_dir"
+      return 0
+    fi
+
+    echo "Skipping existing symlink: $target_path -> $existing_target" >&2
+    return 1
+  fi
+
+  if [[ -e "$target_path" ]]; then
+    echo "Skipping existing path: $target_path" >&2
+    return 1
+  fi
+
+  run ln -s "$source_dir" "$target_path"
+  echo "Linked: $target_path -> $source_dir"
+}
+
+link_all_skills() {
+  local target_root="$1"
+  local source_dir
+  local found=0
+  local failed=0
+
+  run mkdir -p "$target_root"
+
+  while IFS= read -r -d '' source_dir; do
+    found=1
+    if ! link_skill "$source_dir" "$target_root"; then
+      failed=1
+    fi
+  done < <(find "$skills_dir" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+
+  if [[ "$found" -eq 0 ]]; then
+    echo "No skill folders found in: $skills_dir" >&2
+    return 1
+  fi
+
+  return "$failed"
+}
+
+status=0
+
+echo "Linking Codex skills into: $codex_skills_dir"
+if ! link_all_skills "$codex_skills_dir"; then
+  status=1
+fi
+
+echo "Linking Claude skills into: $claude_skills_dir"
+if ! link_all_skills "$claude_skills_dir"; then
+  status=1
+fi
+
+exit "$status"
